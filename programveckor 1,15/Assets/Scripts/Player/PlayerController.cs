@@ -1,6 +1,5 @@
 ﻿using System;
-using Interfaces;
-using Movement_Modules;
+using Movement.Interfaces;
 using Unity.VisualScripting;
 using UnityEngine;
 

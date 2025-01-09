@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Movement_Modules
+namespace Movement.Modules
 {
 	public class WallJumpModule : MonoBehaviour
 	{
