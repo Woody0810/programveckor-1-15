@@ -254,44 +254,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1076573431}
-  - component: {fileID: 1076573430}
-  - component: {fileID: 1076573429}
+  - component: {fileID: 1076573432}
   m_Layer: 0
   m_Name: Hurt Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1076573429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076573428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40c0aa1178524584bbc6e82c695c33d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <IsStackable>k__BackingField: 1
-  damagePerTick: 2
-  tick: 1
-  totalTime: 5
---- !u!114 &1076573430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1076573428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae7ffb74abf4129966575922fbf1e2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 2128190927}
+  m_IsActive: 1
 --- !u!4 &1076573431
 Transform:
   m_ObjectHideFlags: 0
@@ -307,6 +277,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1076573432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076573428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 698364d0aa21450f8e4750d66cf7dc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 2128190937}
 --- !u!1 &1335057808
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +760,7 @@ GameObject:
   - component: {fileID: 2128190936}
   - component: {fileID: 2128190937}
   - component: {fileID: 2128190938}
+  - component: {fileID: 2128190939}
   m_Layer: 0
   m_Name: Player Test
   m_TagString: Untagged
@@ -994,7 +978,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128190927}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2061405db2134971a56aa3a13f4eeb20, type: 3}
   m_Name: 
@@ -1007,11 +991,26 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128190927}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6510d0d174814e1fa34d74dd15af23d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2128190939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128190927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37d7d8f9ed5741e8aa9a02d18dc5de3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invincibilityTimer: 1
+  dodgeTimer: 0.5
+  magnitude: 5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

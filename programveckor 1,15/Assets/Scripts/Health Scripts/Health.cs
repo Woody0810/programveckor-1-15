@@ -10,6 +10,7 @@ namespace Health_Scripts
 		[field: SerializeField] private float MaxHealth { get; set; }
 		public Queue<Coroutine> Effects { get; set; } = new();
 		private float _currentHealth;
+		private bool _isDamagable = true;
 
 		#region Damage Events
 
@@ -27,6 +28,7 @@ namespace Health_Scripts
 
 		public void DealDamage(float amount)
 		{
+			if (!_isDamagable) return;
 			_currentHealth -= amount;
 
 			if (_currentHealth <= 0)
@@ -50,6 +52,11 @@ namespace Health_Scripts
 		}
 
 		#endregion
+
+		public void IsDamagable(bool damagable)
+		{
+			_isDamagable = damagable;
+		}
 
 		public void ApplyEffect(IEffect effect)
 		{
