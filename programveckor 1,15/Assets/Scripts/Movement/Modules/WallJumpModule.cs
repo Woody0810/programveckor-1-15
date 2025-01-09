@@ -29,13 +29,11 @@ namespace Movement.Modules
 		{
 			if (IsAgainstRightWall())
 			{
-				Debug.Log("Against right wall");
 				_rb.velocity = new Vector2(0, 0.1f);
 			}
 
 			if (IsAgainstLeftWall())
 			{
-				Debug.Log("Against left wall");
 				_rb.velocity = new Vector2(0, 0.1f);
 			}
 		}
