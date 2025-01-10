@@ -5,7 +5,7 @@ namespace Health_Scripts.Modules
 {
 	public class DamageOnce : MonoBehaviour
 	{
-		[SerializeField] private Health health;
+		[SerializeField] private IHealth health;
 
 		private void Update()
 		{

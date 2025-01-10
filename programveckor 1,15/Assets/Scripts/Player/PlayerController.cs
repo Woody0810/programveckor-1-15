@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -11,13 +10,17 @@ namespace Player
 		[Header("Movement")]
 		[SerializeField] private float moveSpeed;
 
-		[Header("Jump")]
-		[SerializeField] private int maxJumps;
-		[SerializeField] private Vector2 jumpBoxSize;
-		[SerializeField] private LayerMask groundMask;
-		[SerializeField] private float jumpCastDistance;
-		[SerializeField] private float jumpForce;
-		[SerializeField] private float jumpDelay;
+		#endregion
+
+		#region Private object references
+
+		private Rigidbody2D _rb;
+		private PlayerHealth _playerHealth;
+		private Animator _animator;
+
+		#endregion
+
+		#region Wall Jump
 
 		[Header("Wall Jump")]
 		[SerializeField] private Vector2 wallBoxSize;
@@ -28,9 +31,18 @@ namespace Player
 
 		#endregion
 
-		#region Private object references
+		#region Jump
 
-		private Rigidbody2D _rb;
+		[Header("Jump")]
+		[SerializeField] private int maxJumps;
+		[SerializeField] private Vector2 jumpBoxSize;
+		[SerializeField] private LayerMask groundMask;
+		[SerializeField] private float jumpCastDistance;
+		[SerializeField] private float jumpForce;
+		[SerializeField] private float jumpDelay;
+
+		private bool _isJumping;
+		private int _remainingJumps;
 
 		#endregion
 
@@ -41,62 +53,96 @@ namespace Player
 		/// </summary>
 		private float _directionX;
 
-		private bool _jumpDelay;
+		private float _moveY;
 
-		private int _jumpsLeft;
+		private bool _isFacingLeft = true;
+
+		#endregion
+
+		#region Dash
+
+		private bool _canDash = true;
+		private bool _isDashing;
+
+		[Header("Dash")]
+		[SerializeField] private float dashingPower;
+		[SerializeField] private float dashingTime;
+		[SerializeField] private float dashingCooldown;
+
+		#endregion
+
+		#region Animation
+
+		private static readonly int Horizontal = Animator.StringToHash("Horizontal");
 
 		#endregion
 
 		private void Start()
 		{
 			_rb = GetComponent<Rigidbody2D>();
-			_jumpsLeft = maxJumps;
+			_playerHealth = GetComponent<PlayerHealth>();
+			_animator = GetComponent<Animator>();
 		}
 
 		private void Update()
 		{
+			if (_isDashing) return;
+
 			_directionX = Input.GetAxisRaw("Horizontal");
 
-			if (IsGrounded() && !_jumpDelay)
+			if (IsGrounded() && !Input.GetButton("Jump"))
 			{
-				_jumpsLeft = maxJumps;
+				_isJumping = false;
+				_remainingJumps = maxJumps;
+			}
+
+			if (Input.GetButtonDown("Jump"))
+			{
+				if (IsGrounded() || (_isJumping && _remainingJumps > 0))
+				{
+					_isJumping = true;
+					_rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+					_remainingJumps--;
+				}
 			}
 
 			if (IsAgainstWall())
 			{
-				_jumpsLeft = 1;
+				_remainingJumps = 1;
 				_rb.velocity = new Vector2(0, -0.2f);
 			}
 
 			if (IsAgainstClimableWall())
 			{
-				var moveY = Input.GetAxisRaw("Vertical");
-				_rb.velocity = new Vector2(_rb.velocity.x, moveY * wallClimbSpeed);
+				_moveY = Input.GetAxisRaw("Vertical");
+				_rb.velocity = new Vector2(_rb.velocity.x, _moveY * wallClimbSpeed);
 			}
 
-			if (_jumpsLeft > 0 && Input.GetButtonDown("Jump"))
+			if (Input.GetKeyDown(KeyCode.LeftShift) && _canDash)
 			{
-				Jump();
+				StartCoroutine(Dash());
 			}
+
+			_animator.SetFloat(Horizontal, Mathf.Abs(_directionX));
+
+			Flip();
 		}
 
 		private void FixedUpdate()
 		{
+			if (_isDashing) return;
 			_rb.velocity = new Vector2(_directionX * moveSpeed, _rb.velocity.y);
 		}
 
-		private IEnumerator JumpDelay()
+		private void Flip()
 		{
-			yield return new WaitForSeconds(jumpDelay);
-			_jumpDelay = false;
-		}
-
-		private void Jump()
-		{
-			_rb.velocity = new Vector2(_rb.velocity.x, 1 * jumpForce);
-			_jumpsLeft--;
-			_jumpDelay = true;
-			StartCoroutine(JumpDelay());
+			if (_isFacingLeft && _directionX > 0f || !_isFacingLeft && _directionX < 0f)
+			{
+				var localScale = transform.localScale;
+				_isFacingLeft = !_isFacingLeft;
+				localScale.x *= -1;
+				transform.localScale = localScale;
+			}
 		}
 
 		#region Wall / Ground Checks
@@ -119,6 +165,28 @@ namespace Player
 		}
 
 		#endregion
+
+		private IEnumerator Dash()
+		{
+			_canDash = false;
+			_isDashing = true;
+			var originalGravity = _rb.gravityScale;
+			_rb.gravityScale = 0;
+			_rb.velocity = new Vector2(-transform.localScale.x * dashingPower, 0f);
+			_playerHealth.IsDamagable = false;
+			_playerHealth.IsEffectable = false;
+
+			yield return new WaitForSeconds(dashingTime);
+
+			_rb.gravityScale = originalGravity;
+			_playerHealth.IsDamagable = true;
+			_playerHealth.IsEffectable = true;
+			_isDashing = false;
+
+			yield return new WaitForSeconds(dashingCooldown);
+
+			_canDash = true;
+		}
 
 		private void OnDrawGizmos()
 		{

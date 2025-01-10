@@ -5,11 +5,11 @@ namespace Health_Scripts.Modules
 {
 	public class LogHealth : MonoBehaviour
 	{
-		private Health _health;
+		private IHealth _health;
 
 		private void Awake()
 		{
-			_health = GetComponent<Health>();
+			_health = GetComponent<IHealth>();
 		}
 
 		private void OnEnable()

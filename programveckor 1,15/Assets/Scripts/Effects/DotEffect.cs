@@ -13,11 +13,11 @@ namespace Effects
 		[SerializeField] private float tick;
 		[SerializeField] private float totalTime;
 
-		private Health _health;
+		private IHealth _health;
 
 		public void Init(GameObject effectableObject)
 		{
-			_health = effectableObject.GetComponent<Health>();
+			_health = effectableObject.GetComponent<IHealth>();
 		}
 
 		public IEnumerator Effect(Queue<Coroutine> effects = null)
@@ -34,5 +34,7 @@ namespace Effects
 			if (effects?.Count > 0)
 				StopCoroutine(effects.Dequeue());
 		}
+
+		public void ClearEffect() => StopAllCoroutines();
 	}
 }
