@@ -31,8 +31,8 @@ public class shootarrows : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("arrow"))
-        {
+        if (collision.CompareTag("arrow") && (timesfired>=12) )
+        { 
             collision.gameObject.SetActive(false);
             timesfired = timesfired - 3;
         }
