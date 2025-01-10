@@ -29,9 +29,13 @@ namespace Health_Scripts.Modules
 			if (!_canDodge) yield break;
 			_health.IsDamagable(false);
 
-			yield return new WaitForSeconds(invincibilityTimer);
+			Debug.Log("Cant be hit");
 
-			_health.IsDamagable(true);
+			yield return new WaitForSeconds(invincibilityTimer);
+			
+            Debug.Log("Can be hit");
+
+            _health.IsDamagable(true);
 			StartCoroutine(ResetDodgeTimer());
 		}
 
