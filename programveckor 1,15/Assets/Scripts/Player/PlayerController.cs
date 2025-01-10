@@ -1,5 +1,7 @@
 ﻿using System;
 using Movement.Interfaces;
+using Player.State_Machine;
+using Player.State_Machine.ConcreteStates;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -15,8 +17,9 @@ namespace Player
 
 		#region Private object references
 
-		private ISetVelocity _setVelocity;
-		private Rigidbody2D _rb;
+		public ISetVelocity SetVelocity { get; private set; }
+		public Rigidbody2D Rb { get; private set; }
+		public PlayerStateMachine StateMachine { get; private set; }
 
 		#endregion
 
@@ -27,22 +30,51 @@ namespace Player
 		/// </summary>
 		private float _directionX;
 
+		public bool IsGrounded { get; set; }
+		public bool IsOnWall { get; set; }
+		public bool IsOnClimableWall { get; set; }
+		public bool IsJumping { get; set; }
+		public bool IsMoving { get; set; }
+
+		#endregion
+
+		#region Player States
+
+		public PlayerIdleState IdleState { get; private set; }
+		public PlayerMovingState MovingState { get; private set; }
+
 		#endregion
 
 		private void Start()
 		{
-			_setVelocity = GetComponent<ISetVelocity>();
-			_rb = GetComponent<Rigidbody2D>();
+			StateMachine = new PlayerStateMachine();
+			IdleState = new PlayerIdleState(this, StateMachine);
+			MovingState = new PlayerMovingState(this, StateMachine);
+
+			SetVelocity = GetComponent<ISetVelocity>();
+			Rb = GetComponent<Rigidbody2D>();
+
+			StateMachine.Init(IdleState);
 		}
 
 		private void Update()
 		{
-			_directionX = Input.GetAxisRaw("Horizontal");
+			StateMachine.CurrentPlayerState.FrameUpdate();
 		}
 
 		private void FixedUpdate()
 		{
-			_setVelocity.SetVelocity(new Vector3(_directionX * moveSpeed, _rb.velocity.y));
+			StateMachine.CurrentPlayerState.PhysicsUpdate();
+		}
+
+		public void CheckForPlayerMovement()
+		{
+			IsMoving = Input.GetButtonDown("Horizontal");
+		}
+
+		public void CheckForPlayerJumping()
+		{
+			IsJumping = Input.GetButtonDown("Jump");
 		}
 	}
 }
