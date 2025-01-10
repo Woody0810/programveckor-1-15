@@ -65,7 +65,7 @@ namespace Player
 			if (IsAgainstWall())
 			{
 				_jumpsLeft = 1;
-				_rb.velocity = new Vector2(0, 0.2f);
+				_rb.velocity = new Vector2(0, -0.2f);
 			}
 
 			if (IsAgainstClimableWall())
