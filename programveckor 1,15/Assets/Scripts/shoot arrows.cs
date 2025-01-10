@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class shootarrows : MonoBehaviour
@@ -17,7 +18,7 @@ public class shootarrows : MonoBehaviour
     private void Update()
     {
 
-        if (timesfired <= 5)
+        if (timesfired <= 12)
         {
             if (Input.GetKeyDown(KeyCode.Q))
             {
@@ -25,7 +26,16 @@ public class shootarrows : MonoBehaviour
                 rb.velocity = new Vector2(5, 0);
                 timesfired = timesfired + 1;
             }
+        } 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("arrow"))
+        {
+            collision.gameObject.SetActive(false);
+            timesfired = timesfired - 3;
         }
-          
+        
     }
 }
