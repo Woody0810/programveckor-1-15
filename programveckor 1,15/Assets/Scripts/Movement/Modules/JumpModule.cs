@@ -1,14 +1,13 @@
-﻿using System;
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Movement_Modules
+namespace Movement.Modules
 {
 	public class JumpModule : MonoBehaviour
 	{
 		#region Inspector variables
 
-		[SerializeField] private bool doubleJump;
+		[SerializeField] private int maxJumps;
 		[SerializeField] private Vector2 boxSize;
 		[SerializeField] private LayerMask groundMask;
 		[SerializeField] private float castDistance;
@@ -21,7 +20,7 @@ namespace Movement_Modules
 
 		private int _maxJumpCount;
 		private int _jumpsLeft;
-		private bool _firstJump = true;
+		private bool _jumpDelay;
 
 		#endregion
 
@@ -34,34 +33,35 @@ namespace Movement_Modules
 		private void Start()
 		{
 			_rb = GetComponent<Rigidbody2D>();
-			_maxJumpCount = doubleJump ? 2 : 1;
+			_maxJumpCount = maxJumps;
 			_jumpsLeft = _maxJumpCount;
 		}
 
 		private void Update()
 		{
-			if (IsGrounded())
+			if (IsGrounded() && !_jumpDelay)
 			{
 				_jumpsLeft = _maxJumpCount;
-				_firstJump = true;
 			}
 
-			if (Input.GetButtonDown("Jump") && _firstJump)
+			if (_jumpsLeft > 0 && Input.GetButtonDown("Jump"))
 			{
 				Jump();
 			}
+		}
 
-			if (_jumpsLeft > 0 && Input.GetButtonDown("Jump") && !_firstJump)
-			{
-				Jump();
-			}
+		private IEnumerator JumpDelay()
+		{
+			yield return new WaitForSeconds(jumpDelay);
+			_jumpDelay = false;
 		}
 
 		private void Jump()
 		{
 			_rb.velocity = new Vector2(_rb.velocity.x, 1 * jumpForce);
 			_jumpsLeft--;
-			_firstJump = false;
+			_jumpDelay = true;
+			StartCoroutine(JumpDelay());
 		}
 
 		private bool IsGrounded()

@@ -1,8 +1,7 @@
-﻿using System;
-using Interfaces;
+﻿using Movement.Interfaces;
 using UnityEngine;
 
-namespace Movement_Modules
+namespace Movement.Modules
 {
 	public class MoveRigidbody : MonoBehaviour, ISetVelocity
 	{
