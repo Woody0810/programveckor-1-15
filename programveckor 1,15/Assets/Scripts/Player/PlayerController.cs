@@ -1,9 +1,6 @@
-﻿using System;
-using Movement.Interfaces;
-using Player.State_Machine;
-using Player.State_Machine.ConcreteStates;
-using Unity.VisualScripting;
+﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -11,15 +8,29 @@ namespace Player
 	{
 		#region Inspector variables
 
+		[Header("Movement")]
 		[SerializeField] private float moveSpeed;
+
+		[Header("Jump")]
+		[SerializeField] private int maxJumps;
+		[SerializeField] private Vector2 jumpBoxSize;
+		[SerializeField] private LayerMask groundMask;
+		[SerializeField] private float jumpCastDistance;
+		[SerializeField] private float jumpForce;
+		[SerializeField] private float jumpDelay;
+
+		[Header("Wall Jump")]
+		[SerializeField] private Vector2 wallBoxSize;
+		[SerializeField] private float wallCastDistance;
+		[SerializeField] private float wallClimbSpeed;
+		[SerializeField] private LayerMask wallMask;
+		[SerializeField] private LayerMask climableWallMask;
 
 		#endregion
 
 		#region Private object references
 
-		public ISetVelocity SetVelocity { get; private set; }
-		public Rigidbody2D Rb { get; private set; }
-		public PlayerStateMachine StateMachine { get; private set; }
+		private Rigidbody2D _rb;
 
 		#endregion
 
@@ -30,51 +41,89 @@ namespace Player
 		/// </summary>
 		private float _directionX;
 
-		public bool IsGrounded { get; set; }
-		public bool IsOnWall { get; set; }
-		public bool IsOnClimableWall { get; set; }
-		public bool IsJumping { get; set; }
-		public bool IsMoving { get; set; }
+		private bool _jumpDelay;
 
-		#endregion
-
-		#region Player States
-
-		public PlayerIdleState IdleState { get; private set; }
-		public PlayerMovingState MovingState { get; private set; }
+		private int _jumpsLeft;
 
 		#endregion
 
 		private void Start()
 		{
-			StateMachine = new PlayerStateMachine();
-			IdleState = new PlayerIdleState(this, StateMachine);
-			MovingState = new PlayerMovingState(this, StateMachine);
-
-			SetVelocity = GetComponent<ISetVelocity>();
-			Rb = GetComponent<Rigidbody2D>();
-
-			StateMachine.Init(IdleState);
+			_rb = GetComponent<Rigidbody2D>();
+			_jumpsLeft = maxJumps;
 		}
 
 		private void Update()
 		{
-			StateMachine.CurrentPlayerState.FrameUpdate();
+			_directionX = Input.GetAxisRaw("Horizontal");
+
+			if (IsGrounded() && !_jumpDelay)
+			{
+				_jumpsLeft = maxJumps;
+			}
+
+			if (IsAgainstWall())
+			{
+				_jumpsLeft = 1;
+				_rb.velocity = new Vector2(0, 0.2f);
+			}
+
+			if (IsAgainstClimableWall())
+			{
+				var moveY = Input.GetAxisRaw("Vertical");
+				_rb.velocity = new Vector2(_rb.velocity.x, moveY * wallClimbSpeed);
+			}
+
+			if (_jumpsLeft > 0 && Input.GetButtonDown("Jump"))
+			{
+				Jump();
+			}
 		}
 
 		private void FixedUpdate()
 		{
-			StateMachine.CurrentPlayerState.PhysicsUpdate();
+			_rb.velocity = new Vector2(_directionX * moveSpeed, _rb.velocity.y);
 		}
 
-		public void CheckForPlayerMovement()
+		private IEnumerator JumpDelay()
 		{
-			IsMoving = Input.GetButtonDown("Horizontal");
+			yield return new WaitForSeconds(jumpDelay);
+			_jumpDelay = false;
 		}
 
-		public void CheckForPlayerJumping()
+		private void Jump()
 		{
-			IsJumping = Input.GetButtonDown("Jump");
+			_rb.velocity = new Vector2(_rb.velocity.x, 1 * jumpForce);
+			_jumpsLeft--;
+			_jumpDelay = true;
+			StartCoroutine(JumpDelay());
+		}
+
+		#region Wall / Ground Checks
+
+		private bool IsGrounded()
+		{
+			return Physics2D.BoxCast(transform.position, jumpBoxSize, 0, -transform.up, jumpCastDistance, groundMask);
+		}
+
+		private bool IsAgainstWall()
+		{
+			return Physics2D.BoxCast(transform.position, wallBoxSize, 0, transform.right, wallCastDistance, wallMask) ||
+			       Physics2D.BoxCast(transform.position, wallBoxSize, 0, -transform.right, wallCastDistance, wallMask);
+		}
+
+		private bool IsAgainstClimableWall()
+		{
+			return Physics2D.BoxCast(transform.position, wallBoxSize, 0, transform.right, wallCastDistance, climableWallMask) ||
+			       Physics2D.BoxCast(transform.position, wallBoxSize, 0, -transform.right, wallCastDistance, climableWallMask);
+		}
+
+		#endregion
+
+		private void OnDrawGizmos()
+		{
+			Gizmos.DrawWireCube(transform.position - transform.up * jumpCastDistance, jumpBoxSize);
+			Gizmos.DrawWireCube(transform.position - transform.right * wallCastDistance, wallBoxSize);
 		}
 	}
 }
