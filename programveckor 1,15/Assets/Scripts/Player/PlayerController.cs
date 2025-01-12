@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Player
 {
@@ -55,7 +56,7 @@ namespace Player
 
 		private float _moveY;
 
-		private bool _isFacingLeft = true;
+		public bool IsFacingLeft { get; private set; } = true;
 
 		#endregion
 
@@ -136,10 +137,10 @@ namespace Player
 
 		private void Flip()
 		{
-			if (_isFacingLeft && _directionX > 0f || !_isFacingLeft && _directionX < 0f)
+			if (IsFacingLeft && _directionX > 0f || !IsFacingLeft && _directionX < 0f)
 			{
 				var localScale = transform.localScale;
-				_isFacingLeft = !_isFacingLeft;
+				IsFacingLeft = !IsFacingLeft;
 				localScale.x *= -1;
 				transform.localScale = localScale;
 			}

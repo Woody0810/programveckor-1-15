@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using Player;
 using UnityEngine;
 using Weapon.Interfaces;
 using Weapon.Projectiles;
@@ -17,10 +18,12 @@ namespace Weapon
 
 		private bool _canFire = true;
 		private Vector3 _parentScale;
+		private Quiver _quiver;
 
 		private void Start()
 		{
 			_parentScale = GetComponentInParent<Transform>().localScale;
+			_quiver = GetComponentInChildren<Quiver>();
 		}
 
 		private void Update()
@@ -35,9 +38,10 @@ namespace Weapon
 
 		public void Attack()
 		{
-			var projectile = Instantiate(bullet, firePostion.position, Quaternion.identity).GetComponent<Arrow>();
+			var projectile = Instantiate(bullet, firePostion.position, Quaternion.identity).GetComponent<IProjectile>();
 			projectile.Init(gameObject);
-			projectile.SetVelocity(new Vector2(0.8f, 1));
+			projectile.SetVelocity(fireDirection);
+			_quiver.DecreaseArrows();
 			StartCoroutine(AttackDelay());
 		}
 

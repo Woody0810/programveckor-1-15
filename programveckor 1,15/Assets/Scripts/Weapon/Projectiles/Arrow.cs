@@ -19,7 +19,7 @@ namespace Weapon.Projectiles
 
 		#endregion
 
-		private void Start()
+		private void Awake()
 		{
 			_rb = GetComponent<Rigidbody2D>();
 			if (!isAffectedByGravity) _rb.gravityScale = 0;
