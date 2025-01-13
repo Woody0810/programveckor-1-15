@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d6f71481fde200045b401e3a096ba314
+guid: c1a22fe35aa5e93428732b089d7df941
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -35,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 100
+    spritePixelsToUnits: 16
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638723746801184359
+  platformSettingsDirtyTick: 638723811756501691
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -164,15 +164,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_1
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 95
+      x: 90
       y: 177
-      width: 11
-      height: 4
+      width: 16
+      height: 16
     spriteID: bc94be058cf129241abeddd7b5dcd835
     spriteBone: []
     spriteOutline: []
@@ -184,8 +184,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_2
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -204,15 +204,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_3
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 153
       y: 175
       width: 6
-      height: 7
+      height: 16
     spriteID: bb7eeb139a644764b909c896158a55b0
     spriteBone: []
     spriteOutline: []
@@ -224,15 +224,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_4
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 163
       y: 175
       width: 8
-      height: 7
+      height: 16
     spriteID: 05dfc1957cf47c44297d381daac0e200
     spriteBone: []
     spriteOutline: []
@@ -244,15 +244,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_5
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 175
       y: 175
       width: 8
-      height: 8
+      height: 16
     spriteID: 268b4e4f5b40efb4ab8eb101e482edbf
     spriteBone: []
     spriteOutline: []
@@ -284,8 +284,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_7
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -324,15 +324,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_9
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 1}
+    alignment: 2
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 164
-      y: 164
+      y: 155
       width: 8
-      height: 7
+      height: 16
     spriteID: f1745151bb4e65644bd36cb784bf4b9b
     spriteBone: []
     spriteOutline: []
@@ -344,15 +344,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_10
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 1}
+    alignment: 2
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 175
-      y: 164
+      y: 156
       width: 8
-      height: 8
+      height: 16
     spriteID: 9bff63f142a85004698f837cfe8c2cb3
     spriteBone: []
     spriteOutline: []
@@ -444,15 +444,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_15
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 126
+      x: 118
       y: 84
-      width: 8
-      height: 7
+      width: 16
+      height: 16
     spriteID: 71a8ba44616c4f44faa9a45cf91b342b
     spriteBone: []
     spriteOutline: []
@@ -464,15 +464,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_16
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 140
       y: 84
       width: 16
-      height: 7
+      height: 16
     spriteID: 1b73ffeaa6fb79544b3fdc608fb326b6
     spriteBone: []
     spriteOutline: []
@@ -484,15 +484,15 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_17
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 172
       y: 84
-      width: 8
-      height: 7
+      width: 16
+      height: 16
     spriteID: fc9f6487a3c66424cb3cd10f0218edbc
     spriteBone: []
     spriteOutline: []
@@ -564,13 +564,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_21
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 108
-      y: 53
+      y: 52
       width: 16
       height: 16
     spriteID: bb3917acca17f8a42b40a2855fdd7089
@@ -584,13 +584,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_22
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 128
-      y: 53
+      y: 52
       width: 16
       height: 16
     spriteID: 37683ed7eac99fd40ab70891ded8c59b
@@ -604,13 +604,13 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava_23
     originalName: 
-    pivot: {x: 0, y: 0}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 149
-      y: 55
+      y: 52
       width: 16
       height: 16
     spriteID: 439d103356ce57947a73775d583b40e7
@@ -654,26 +654,6 @@ ScriptedImporter:
       width: 16
       height: 16
     spriteID: c811fc6099b9560478207ba2531c74cd
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: TileMapLava_26
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 92
-      y: 36
-      width: 16
-      height: 16
-    spriteID: ce0be5a479c913b41a363a2b3f1df696
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1062,7 +1042,27 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: TileMapLava_46
+  - name: TileMapLava 1_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 92
+      y: 36
+      width: 16
+      height: 16
+    spriteID: 976ff0082b17feb4c9568d1fd536fb32
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: TileMapLava 1_1
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1073,7 +1073,7 @@ ScriptedImporter:
       y: 20
       width: 16
       height: 16
-    spriteID: 1c77dc2b97a120048b09ac7ed7ba7fe8
+    spriteID: d9a7e8cea8dc45842b1ac42c8724ab4b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1082,7 +1082,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: TileMapLava_47
+  - name: TileMapLava 1_2
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1093,7 +1093,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: 63dd074cbc55b1b429343e1886044247
+    spriteID: 54e8c4a90c847374fafc499f32ca3502
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1102,7 +1102,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: TileMapLava_48
+  - name: TileMapLava 1_3
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1113,7 +1113,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: a44c8ab0544ed1e44ae33d333ec642a2
+    spriteID: 39b8978081f96e547a299ca50eff5c30
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1122,7 +1122,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: TileMapLava_49
+  - name: TileMapLava 1_4
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1133,7 +1133,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: 820c6e859505a43498108a198a857f47
+    spriteID: 0451c354d3bfe204ab9a145a4ff5b3a4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1142,7 +1142,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: TileMapLava_50
+  - name: TileMapLava 1_5
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1153,7 +1153,7 @@ ScriptedImporter:
       y: 4
       width: 16
       height: 16
-    spriteID: fd9b3a7a8c71d984dbb671e658363221
+    spriteID: 1b8b38dd4efbc11438cfcedd0aaefc62
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1162,7 +1162,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: TileMapLava_51
+  - name: TileMapLava 1_6
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1173,7 +1173,7 @@ ScriptedImporter:
       y: 20
       width: 16
       height: 16
-    spriteID: e167e097630997e469e72bbe562c4189
+    spriteID: b0867da30a4881447a628b6415545b5a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -1182,7 +1182,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: TileMapLava_52
+  - name: TileMapLava 1_7
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -1193,7 +1193,7 @@ ScriptedImporter:
       y: 36
       width: 16
       height: 16
-    spriteID: 0516f9399ebeb81489398a10db633541
+    spriteID: b9026f89aa373644ea9a3f55ef54cd22
     spriteBone: []
     spriteOutline: []
     vertices: []
