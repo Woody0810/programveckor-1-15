@@ -38,8 +38,8 @@ namespace Enemy.Base
 
 			EnemyStateMachine.Init(IdleState);
 
-            EnemyChaseSpeed = EnemyChaseSpeed * DifficultyManager.enemySpeedMultiplier;
-            EnemyHealth = EnemyHealth * DifficultyManager.enemyHealthMultiplier;
+            EnemyChaseSpeed *= DifficultyManager.enemySpeedMultiplier;
+            EnemyHealth.MaxHealth *= DifficultyManager.enemyHealthMultiplier;
 
         }
 

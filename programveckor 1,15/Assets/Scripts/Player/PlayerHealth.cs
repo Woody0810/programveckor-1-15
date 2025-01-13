@@ -11,12 +11,6 @@ namespace Player
 	[Serializable]
 	public class PlayerHealth : MonoBehaviour, IHealth, IEffectable
 	{
-        void start()
-		{
-			MaxHealth = CurrentHealth * DifficultyManager.playerHealthMultiplier;
-			Debug.Log(MaxHealth);
-		}
-
         [field: SerializeField] public float MaxHealth { get; set; }
 		public float CurrentHealth { get; set; }
 		public Queue<Coroutine> Effects { get; set; }
@@ -39,6 +33,8 @@ namespace Player
 
 		private void Start()
 		{
+			MaxHealth *= DifficultyManager.playerHealthMultiplier;
+			Debug.Log(MaxHealth);
 			CurrentHealth = MaxHealth;
 		}
 
