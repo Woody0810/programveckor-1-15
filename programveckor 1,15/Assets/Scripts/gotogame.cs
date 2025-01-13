@@ -12,7 +12,7 @@ public class mainmenu : MonoBehaviour
 
     public void gotogame()
     {
-        SceneManager.LoadScene("main game");
+        SceneManager.LoadScene("SampleScene Adrian");
     }
 
     public void gotosettings()

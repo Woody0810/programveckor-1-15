@@ -7,10 +7,17 @@ using UnityEngine.Serialization;
 
 namespace Player
 {
+	
 	[Serializable]
 	public class PlayerHealth : MonoBehaviour, IHealth, IEffectable
 	{
-		[field: SerializeField] public float MaxHealth { get; set; }
+        void start()
+		{
+			MaxHealth = CurrentHealth * DifficultyManager.playerHealthMultiplier;
+			Debug.Log(MaxHealth);
+		}
+
+        [field: SerializeField] public float MaxHealth { get; set; }
 		public float CurrentHealth { get; set; }
 		public Queue<Coroutine> Effects { get; set; }
 

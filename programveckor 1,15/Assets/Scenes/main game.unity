@@ -444,14 +444,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0
-  maxJumps: 0
-  jumpBoxSize: {x: 0, y: 0}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 0
-  jumpCastDistance: 0
-  jumpForce: 0
-  jumpDelay: 0
   wallBoxSize: {x: 0, y: 0}
   wallCastDistance: 0
   wallClimbSpeed: 0
@@ -461,6 +453,17 @@ MonoBehaviour:
   climableWallMask:
     serializedVersion: 2
     m_Bits: 0
+  maxJumps: 0
+  jumpBoxSize: {x: 0, y: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 0
+  jumpCastDistance: 0
+  jumpForce: 0
+  jumpDelay: 0
+  dashingPower: 0
+  dashingTime: 0
+  dashingCooldown: 0
 --- !u!50 &1553185807
 Rigidbody2D:
   serializedVersion: 4
@@ -533,50 +536,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.23438707, y: 0.5090344}
   m_EdgeRadius: 0
---- !u!114 &1553185809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553185802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37d7d8f9ed5741e8aa9a02d18dc5de3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  invincibilityTimer: 0
-  dodgeTimer: 0
---- !u!114 &1553185810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553185802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6510d0d174814e1fa34d74dd15af23d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1553185811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1553185802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2061405db2134971a56aa3a13f4eeb20, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 0
 --- !u!4 &1553185813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 74e81eb3805962347b27c6aa456a1172, type: 3}
   m_PrefabInstance: {fileID: 1790835967}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1553185814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553185802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed297c9b4c0646d2b4e52bf82f9f0d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 100
 --- !u!1 &1708824253
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,13 +720,7 @@ PrefabInstance:
       addedObject: {fileID: 1553185805}
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 74e81eb3805962347b27c6aa456a1172, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1553185811}
-    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 74e81eb3805962347b27c6aa456a1172, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1553185810}
-    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 74e81eb3805962347b27c6aa456a1172, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1553185809}
+      addedObject: {fileID: 1553185814}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 74e81eb3805962347b27c6aa456a1172, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

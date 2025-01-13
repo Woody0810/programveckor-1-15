@@ -1,6 +1,7 @@
 ﻿using System;
 using Enemy.State_Machine;
 using Enemy.State_Machine.ConcreteStates;
+using Health_Scripts;
 using UnityEngine;
 
 namespace Enemy.Base
@@ -36,7 +37,11 @@ namespace Enemy.Base
 			AttackState = new EnemyAttackState(this, EnemyStateMachine);
 
 			EnemyStateMachine.Init(IdleState);
-		}
+
+            EnemyChaseSpeed = EnemyChaseSpeed * DifficultyManager.enemySpeedMultiplier;
+            EnemyHealth = EnemyHealth * DifficultyManager.enemyHealthMultiplier;
+
+        }
 
 		private void Update()
 		{
