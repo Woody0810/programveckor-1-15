@@ -16,15 +16,11 @@ namespace Enemy.State_Machine.ConcreteStates
 		public override void EnterState()
 		{
 			base.EnterState();
-
-			Debug.Log("Enemy is in chasing state");
 		}
 
 		public override void ExitState()
 		{
 			base.ExitState();
-
-			Debug.Log("Enemy is not in chasing state");
 		}
 
 		public override void FrameUpdate()
@@ -32,6 +28,8 @@ namespace Enemy.State_Machine.ConcreteStates
 			base.FrameUpdate();
 
 			if (!Enemy.IsAggroed) StateMachine.ChangeState(Enemy.IdleState);
+			if (Enemy.IsAttacking) StateMachine.ChangeState(Enemy.AttackState);
+
 			_direction = (_playerTarget.position - Enemy.transform.position).normalized;
 			_direction.y = 0;
 			_direction.x *= Enemy.EnemyChaseSpeed;

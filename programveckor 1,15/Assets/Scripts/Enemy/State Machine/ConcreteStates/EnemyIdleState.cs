@@ -16,16 +16,12 @@ namespace Enemy.State_Machine.ConcreteStates
 		{
 			base.EnterState();
 
-			Debug.Log("Enemy is idle");
-			_newVelocity = Enemy.IsFacingLeft ? new Vector2(-1 * 4, 0) : new Vector2(1 * 4, 0);
-			Enemy.SetVelocity(_newVelocity);
+			_newVelocity = new Vector2(-1 * 4, 0);
 		}
 
 		public override void ExitState()
 		{
 			base.ExitState();
-
-			Debug.Log("Enemy is not idle");
 		}
 
 		public override void FrameUpdate()
@@ -42,11 +38,19 @@ namespace Enemy.State_Machine.ConcreteStates
 				_newVelocity *= -1;
 				Enemy.SetIsAgainstWall(false);
 			}
+
+			if (Enemy.IsAgainstLedge && !Enemy.IsAgainstWall)
+			{
+				_newVelocity *= -1;
+				Enemy.SetIsAgainstLedge(false);
+			}
 		}
 
 		public override void PhysicsUpdate()
 		{
 			base.PhysicsUpdate();
+
+			if (!Enemy.IsGrounded) return;
 
 			Enemy.SetVelocity(_newVelocity);
 		}

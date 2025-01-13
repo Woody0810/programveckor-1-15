@@ -34,7 +34,6 @@ namespace Player
 		private void Start()
 		{
 			MaxHealth *= DifficultyManager.playerHealthMultiplier;
-			Debug.Log(MaxHealth);
 			CurrentHealth = MaxHealth;
 		}
 

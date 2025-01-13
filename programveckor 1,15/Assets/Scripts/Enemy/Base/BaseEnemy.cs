@@ -8,15 +8,19 @@ namespace Enemy.Base
 {
 	public class BaseEnemy : MonoBehaviour
 	{
+		[SerializeField] private GameObject bullet;
 		public EnemyHealth EnemyHealth { get; private set; }
 		public Rigidbody2D Rb { get; private set; }
-		public bool IsAgainstWall { get; private set; }
 
 		[field: SerializeField] public float EnemyChaseSpeed { get; private set; }
+		[field: SerializeField] public float EnemyProjectileSpeed { get; private set; }
 
+		public bool IsAgainstWall { get; private set; }
+		public bool IsAgainstLedge { get; private set; }
 		public bool IsFacingLeft { get; set; } = true;
 		public bool IsAggroed { get; set; }
 		public bool IsAttacking { get; set; }
+		public bool IsGrounded { get; set; }
 
 		#region State Machine Variables
 
@@ -34,13 +38,12 @@ namespace Enemy.Base
 			EnemyStateMachine = new EnemyStateMachine();
 			IdleState = new EnemyIdleState(this, EnemyStateMachine);
 			ChasingState = new EnemyChasingState(this, EnemyStateMachine);
-			AttackState = new EnemyAttackState(this, EnemyStateMachine);
+			AttackState = new EnemyAttackState(this, EnemyStateMachine, bullet);
 
 			EnemyStateMachine.Init(IdleState);
 
-            EnemyChaseSpeed *= DifficultyManager.enemySpeedMultiplier;
-            EnemyHealth.MaxHealth *= DifficultyManager.enemyHealthMultiplier;
-
+            // EnemyChaseSpeed *= DifficultyManager.enemySpeedMultiplier;
+            // EnemyHealth.MaxHealth *= DifficultyManager.enemyHealthMultiplier;
         }
 
 		private void Update()
@@ -72,14 +75,14 @@ namespace Enemy.Base
 
 		public virtual void Death() {}
 
-		public void SetIsAgainstWall(bool isAgainstWall)
-		{
-			IsAgainstWall = isAgainstWall;
-		}
+		public void SetIsAgainstWall(bool isAgainstWall) => IsAgainstWall = isAgainstWall;
 
-		public void SetIsAggroed(bool isAggroed)
-		{
-			IsAggroed = isAggroed;
-		}
+		public void SetIsAggroed(bool isAggroed) => IsAggroed = isAggroed;
+
+		public void SetIsAttacking(bool isAttacking) => IsAttacking = isAttacking;
+
+		public void SetIsGrounded(bool isGrounded) => IsGrounded = isGrounded;
+
+		public void SetIsAgainstLedge(bool isAgainstLedge) => IsAgainstLedge = isAgainstLedge;
 	}
 }
