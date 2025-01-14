@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208891beecf04fe9b57e2fc72fc86161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowsLeft: 12
+  arrowsLeft: 20
   sprites:
   - {fileID: -5487480207956724442, guid: a085ac8e6c893ce48bc23b4006dab555, type: 3}
   - {fileID: 3143128415653863992, guid: a085ac8e6c893ce48bc23b4006dab555, type: 3}
@@ -165,6 +165,7 @@ MonoBehaviour:
   firePostion: {fileID: 5387585292273930227}
   <AttackSpeed>k__BackingField: 0.5
   <Damage>k__BackingField: 1
+  Arrowreturn: 6
 --- !u!1 &2895824451244756224
 GameObject:
   m_ObjectHideFlags: 0
