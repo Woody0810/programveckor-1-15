@@ -6,15 +6,19 @@ namespace Enemy
 {
 	public class EnemyHealth : MonoBehaviour, IHealth
 	{
+		
 		[field: SerializeField] public float MaxHealth { get; set; }
 		public float CurrentHealth { get; set; }
 
 		public event Action<float> OnHealthChanged;
 		public event Action OnDeath;
 
+
 		private void Start()
 		{
 			CurrentHealth = MaxHealth;
+		
+			
 		}
 
 		public void DealDamage(float amount)
@@ -24,5 +28,16 @@ namespace Enemy
 		public void HealHealth(float amount)
 		{
 		}
+		public void Takedamage(int damage)
+		{
+			CurrentHealth -= damage;
+			Debug.Log("damage takenshshhshshsh " + CurrentHealth);
+
+            if (CurrentHealth <= 0)
+            {
+				Destroy(gameObject);     
+			}
+        }
+		
 	}
 }
