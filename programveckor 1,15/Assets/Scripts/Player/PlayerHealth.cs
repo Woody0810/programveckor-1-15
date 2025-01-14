@@ -18,7 +18,7 @@ namespace Player
 		public event Action<float> OnHealthChanged;
 		public event Action OnDeath;
 
-		public bool IsDamagable { get; set; }
+		public bool IsDamagable { get; set; } = true;
 		public bool IsEffectable { get; set; }
 
 		private void OnEnable()
@@ -33,7 +33,6 @@ namespace Player
 
 		private void Start()
 		{
-			MaxHealth *= DifficultyManager.playerHealthMultiplier;
 			CurrentHealth = MaxHealth;
 		}
 

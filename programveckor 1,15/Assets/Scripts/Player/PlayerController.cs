@@ -110,6 +110,7 @@ namespace Player
 			if (IsAgainstWall())
 			{
 				_remainingJumps = 1;
+				Debug.Log(_remainingJumps);
 				_rb.velocity = new Vector2(0, -0.2f);
 			}
 

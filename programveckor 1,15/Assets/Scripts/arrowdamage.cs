@@ -14,6 +14,4 @@ public class damage : MonoBehaviour
         EnemyHealth.DealDamage(10);
         Destroy(gameObject);
     }
-
-
 }
