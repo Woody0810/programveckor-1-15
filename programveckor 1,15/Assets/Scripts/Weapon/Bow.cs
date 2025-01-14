@@ -40,12 +40,13 @@ namespace Weapon
 
 		public void Attack()
 		{
+			var worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			var projectile = Instantiate(bullet, firePostion.position, Quaternion.identity).GetComponent<IProjectile>();
+			fireDirection = (worldPos - firePostion.position).normalized;
 			projectile.Init(gameObject);
 			projectile.SetVelocity(fireDirection);
 			_quiver.DecreaseArrows();
 			StartCoroutine(AttackDelay());
-			StartCoroutine(Returnarrow());
 		}
 
 		public IEnumerator AttackDelay()
@@ -55,11 +56,7 @@ namespace Weapon
 			_canFire = true;
 		}
 
-		public IEnumerator Returnarrow()
-		{
-			yield return new WaitForSeconds(Arrowreturn);
-			_quiver.IncreaseArrows();
-		}
+
 
 		private void Flip()
 		{

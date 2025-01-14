@@ -1,17 +1,31 @@
+using System;
 using Enemy;
 using Health_Scripts;
 using Player;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Weapon;
 
 public class damage : MonoBehaviour
 {
     public EnemyHealth EnemyHealth;
+    public Bow Bow;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        EnemyHealth.DealDamage(10);
-        Destroy(gameObject);
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            var eHealth = collision.gameObject.GetComponent<EnemyHealth>();
+            eHealth.DealDamage(10);
+        }
+
+        StartCoroutine(Returnarrow());
+    }
+
+    public IEnumerator Returnarrow()
+    {
+        yield return new WaitForSeconds(7);
+        Bow.GetComponentInChildren<Quiver>().IncreaseArrows();
     }
 }

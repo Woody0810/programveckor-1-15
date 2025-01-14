@@ -35,5 +35,6 @@ namespace Weapon.Projectiles
 			newVelocity.x *= xSpeed;
 			_rb.velocity = newVelocity;
 		}
+
 	}
 }

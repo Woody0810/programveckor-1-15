@@ -10,7 +10,7 @@ public class Followquerser : MonoBehaviour
     [SerializeField] private Arrow arrowprojektile;
     [SerializeField] private Transform spawnpoint;
     private Camera _cam;
-    void awake()
+    void Awake()
     {
         _cam = Camera.main;
     }
@@ -26,7 +26,6 @@ public class Followquerser : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
       {
             Instantiate(arrowprojektile, spawnpoint.position, Quaternion.identity).GetComponent<Shootarrow>().Init(transform.up);
-
       }
     }
 }
