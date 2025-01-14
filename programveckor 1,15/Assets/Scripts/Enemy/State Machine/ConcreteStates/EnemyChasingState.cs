@@ -5,12 +5,10 @@ namespace Enemy.State_Machine.ConcreteStates
 {
 	public class EnemyChasingState : EnemyState
 	{
-		private Transform _playerTarget;
 		private Vector2 _direction;
 
 		public EnemyChasingState(BaseEnemy enemy, EnemyStateMachine stateMachine) : base(enemy, stateMachine)
 		{
-			_playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
 		}
 
 		public override void EnterState()
@@ -30,7 +28,7 @@ namespace Enemy.State_Machine.ConcreteStates
 			if (!Enemy.IsAggroed) StateMachine.ChangeState(Enemy.IdleState);
 			if (Enemy.IsAttacking) StateMachine.ChangeState(Enemy.AttackState);
 
-			_direction = (_playerTarget.position - Enemy.transform.position).normalized;
+			_direction = (Enemy.PlayerTarget.transform.position - Enemy.transform.position).normalized;
 			_direction.y = 0;
 			_direction.x *= Enemy.EnemyChaseSpeed;
 		}

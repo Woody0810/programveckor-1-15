@@ -7,15 +7,15 @@ namespace Enemy.State_Machine.ConcreteStates
 {
 	public class EnemyAttackState : EnemyState
 	{
-		private Transform _playerTarget;
 		private GameObject _bullet;
 
 		private float _timeBetweenShots = 0.75f;
 		private float _timer;
+		private IProjectile _projectile;
 
 		public EnemyAttackState(BaseEnemy enemy, EnemyStateMachine stateMachine, GameObject bullet) : base(enemy, stateMachine)
 		{
-			_playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
+			_projectile = bullet.GetComponent<IProjectile>();
 			_bullet = bullet;
 		}
 
@@ -43,10 +43,9 @@ namespace Enemy.State_Machine.ConcreteStates
 			{
 				_timer = 0;
 
-				var direction = (_playerTarget.position - Enemy.transform.position).normalized * Enemy.EnemyProjectileSpeed;
-				var bullet = GameObject.Instantiate(_bullet, Enemy.transform.position, Quaternion.identity).GetComponent<IProjectile>();
-				bullet.Init();
-				bullet.SetVelocity(direction);
+				var direction = (Enemy.PlayerTarget.transform.position - Enemy.transform.position).normalized * Enemy.EnemyProjectileSpeed;
+				var bullet = GameObject.Instantiate(_bullet, Enemy.transform.position, Quaternion.identity);
+				_projectile.SetVelocity(direction);
 			}
 			else
 			{

@@ -9,6 +9,7 @@ namespace Enemy.Base
 	public class BaseEnemy : MonoBehaviour
 	{
 		[SerializeField] private GameObject bullet;
+		[field: SerializeField] public GameObject PlayerTarget { get; set; }
 		public EnemyHealth EnemyHealth { get; private set; }
 		public Rigidbody2D Rb { get; private set; }
 
