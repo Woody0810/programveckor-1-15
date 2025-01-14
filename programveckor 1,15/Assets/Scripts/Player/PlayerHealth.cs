@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Effects.Interfaces;
 using Health_Scripts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 namespace Player
@@ -63,6 +64,7 @@ namespace Player
 		{
 			Debug.Log("Player Died :(");
 			Destroy(gameObject);
+			SceneManager.LoadScene("You Lose");
 		}
 	}
 }

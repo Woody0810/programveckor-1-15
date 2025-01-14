@@ -23,6 +23,13 @@ public class mainmenu : MonoBehaviour
     public void gotomainmeny()
     {
         SceneManager.LoadScene("Main meny");
+
+    }
+
+    public void gotoAdrianTilemap()
+    {
+        SceneManager.LoadScene("Adrian Tilemap Test");
     }
 }
+
 
