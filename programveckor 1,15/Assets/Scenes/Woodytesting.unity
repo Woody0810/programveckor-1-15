@@ -293,8 +293,6 @@ GameObject:
   - component: {fileID: 1650548019}
   - component: {fileID: 1650548018}
   - component: {fileID: 1650548023}
-  - component: {fileID: 1650548017}
-  - component: {fileID: 1650548022}
   - component: {fileID: 1650548021}
   - component: {fileID: 1650548020}
   m_Layer: 0
@@ -304,19 +302,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1650548017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1650548016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13e838679a145434caa81ce97d1ce0aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 8239651591797708439, guid: 8545bf1bf435e4d4492817d7ba3aca57, type: 3}
 --- !u!212 &1650548018
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -456,18 +441,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1650548022
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1650548016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ebba10e05d747de966e0e50813ec7a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1650548023
 MonoBehaviour:
   m_ObjectHideFlags: 0
