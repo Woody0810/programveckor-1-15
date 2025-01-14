@@ -15,7 +15,6 @@ namespace Enemy.State_Machine.ConcreteStates
 
 		public EnemyAttackState(BaseEnemy enemy, EnemyStateMachine stateMachine, GameObject bullet) : base(enemy, stateMachine)
 		{
-			_projectile = bullet.GetComponent<IProjectile>();
 			_bullet = bullet;
 		}
 
@@ -44,8 +43,8 @@ namespace Enemy.State_Machine.ConcreteStates
 				_timer = 0;
 
 				var direction = (Enemy.PlayerTarget.transform.position - Enemy.transform.position).normalized * Enemy.EnemyProjectileSpeed;
-				var bullet = GameObject.Instantiate(_bullet, Enemy.transform.position, Quaternion.identity);
-				_projectile.SetVelocity(direction);
+				var bullet = GameObject.Instantiate(_bullet, Enemy.transform.position, Quaternion.identity).GetComponent<IProjectile>();
+				bullet.SetVelocity(direction);
 			}
 			else
 			{

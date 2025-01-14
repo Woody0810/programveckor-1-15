@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208891beecf04fe9b57e2fc72fc86161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arrowsLeft: 20
+  arrowsLeft: 12
   sprites:
   - {fileID: -5487480207956724442, guid: a085ac8e6c893ce48bc23b4006dab555, type: 3}
   - {fileID: 3143128415653863992, guid: a085ac8e6c893ce48bc23b4006dab555, type: 3}
@@ -60,6 +60,7 @@ MonoBehaviour:
   - {fileID: 4544196956713963783, guid: a085ac8e6c893ce48bc23b4006dab555, type: 3}
   - {fileID: -4256674866885446813, guid: a085ac8e6c893ce48bc23b4006dab555, type: 3}
   arrowImage: {fileID: 2800258487725946874}
+  arrowReturnDelay: 5
 --- !u!1 &1794882938210644133
 GameObject:
   m_ObjectHideFlags: 0

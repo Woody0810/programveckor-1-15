@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Weapon.Interfaces;
 
 namespace Weapon.Projectiles
@@ -9,7 +10,7 @@ namespace Weapon.Projectiles
 		#region Inspector Variables
 
 		[SerializeField] private bool isAffectedByGravity;
-		[SerializeField] private float xSpeed;
+		[SerializeField] private float speed;
 
 		#endregion
 
@@ -32,9 +33,8 @@ namespace Weapon.Projectiles
 
 		public void SetVelocity(Vector2 newVelocity)
 		{
-			newVelocity.x *= xSpeed;
+			newVelocity *= speed;
 			_rb.velocity = newVelocity;
 		}
-
 	}
 }

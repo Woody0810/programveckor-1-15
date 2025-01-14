@@ -816,11 +816,11 @@ ScriptedImporter:
     vertices: []
     spritePhysicsOutline:
     - outline:
-      - {x: 0, y: -7}
-      - {x: -8, y: -6}
+      - {x: 0, y: -5}
+      - {x: -8, y: -5}
       - {x: -8, y: 8}
       - {x: 8, y: 8}
-      - {x: 8, y: -6}
+      - {x: 8, y: -5}
     indices: 
     edges: []
     tessellationDetail: 0

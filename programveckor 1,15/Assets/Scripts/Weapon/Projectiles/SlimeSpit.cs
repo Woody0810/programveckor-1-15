@@ -1,5 +1,4 @@
-﻿using System;
-using Player;
+﻿using Player;
 using UnityEngine;
 using Weapon.Interfaces;
 
@@ -9,10 +8,12 @@ namespace Weapon.Projectiles
 	{
 		private Rigidbody2D _rb;
 
-		public void Init(GameObject creator = null)
+		private void Awake()
 		{
 			_rb = GetComponent<Rigidbody2D>();
 		}
+
+		public void Init(GameObject creator = null) { }
 
 		public void SetVelocity(Vector2 newVelocity)
 		{
@@ -26,12 +27,9 @@ namespace Weapon.Projectiles
 			{
 				var pHealth = other.gameObject.GetComponent<PlayerHealth>();
 				pHealth.DealDamage(10);
-				Destroy(gameObject);
 			}
-			else
-			{
-				Destroy(gameObject);
-			}
+
+			Destroy(gameObject);
 		}
 	}
 }

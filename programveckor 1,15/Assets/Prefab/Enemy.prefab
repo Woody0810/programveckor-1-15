@@ -47,7 +47,7 @@ MonoBehaviour:
   ledgeDetector: {fileID: 2310760732110625908}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 200
   raycastDistance: 1.5
 --- !u!1 &1389231837455644427
 GameObject:
@@ -65,7 +65,7 @@ GameObject:
   - component: {fileID: 4665164841343636326}
   m_Layer: 8
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 3919821681548270342, guid: e6d87be2b66759548a860ef88d5f7069, type: 3}
+  <PlayerTarget>k__BackingField: {fileID: 0}
   <EnemyChaseSpeed>k__BackingField: 3
   <EnemyProjectileSpeed>k__BackingField: 3
 --- !u!114 &4665164841343636326
@@ -322,7 +323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b85fa2ef2d64ba1891a1b13f9b1ba24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5562630041656724353, guid: 03f42e0cf30eed64e9da6a7cc8e3031b, type: 3}
 --- !u!1 &4083951624486282978
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,7 +494,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f37f1c0e6de541a2be1bc6631900bd9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 5562630041656724353, guid: 03f42e0cf30eed64e9da6a7cc8e3031b, type: 3}
 --- !u!1 &7353562111247450911
 GameObject:
   m_ObjectHideFlags: 0

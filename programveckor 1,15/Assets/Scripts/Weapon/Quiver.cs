@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,7 @@ namespace Weapon
 		[SerializeField] private int arrowsLeft;
 		[SerializeField] private Sprite[] sprites;
 		[SerializeField] private Image arrowImage;
+		[SerializeField] private float arrowReturnDelay;
 
 		private int _currentSpriteIndex;
 
@@ -26,7 +28,12 @@ namespace Weapon
 		}
 
 		public void IncreaseArrows() => arrowsLeft++;
-		public void DecreaseArrows() => arrowsLeft--;
+
+		public void DecreaseArrows()
+		{
+			arrowsLeft--;
+			StartCoroutine(ReturnArrowAfterDelay());
+		}
 
 		public void UpdateSprite()
 		{
@@ -35,6 +42,12 @@ namespace Weapon
 			else _currentSpriteIndex = arrowsLeft;
 
 			arrowImage.sprite = sprites[_currentSpriteIndex];
+		}
+
+		private IEnumerator ReturnArrowAfterDelay()
+		{
+			yield return new WaitForSeconds(arrowReturnDelay);
+			IncreaseArrows();
 		}
 	}
 }

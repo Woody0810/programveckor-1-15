@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -1546910967566405468}
   - component: {fileID: 585520394971268331}
   - component: {fileID: 7865493168452022967}
-  - component: {fileID: 6229134468967162624}
+  - component: {fileID: -1524946235323922712}
   m_Layer: 11
   m_Name: Arrow
   m_TagString: Untagged
@@ -173,8 +173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAffectedByGravity: 1
-  xSpeed: 10
---- !u!114 &6229134468967162624
+  speed: 0
+--- !u!114 &-1524946235323922712
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,8 +183,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 6196031513711779248}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e4ccdfb53b1f2346a1bb36bcc880b50, type: 3}
+  m_Script: {fileID: 11500000, guid: 7dce6c42450446c0ab1151265844e929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: {fileID: 4665164841343636326, guid: fe25f642870df7a47ae2f65ef5583a2e, type: 3}
-  Bow: {fileID: 2367960800442971589, guid: 41f70218fa78793439fa1463c2f84047, type: 3}
+  damageAmount: 10
+  targetTags: []

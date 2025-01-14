@@ -43,7 +43,6 @@ namespace Weapon
 			var worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			var projectile = Instantiate(bullet, firePostion.position, Quaternion.identity).GetComponent<IProjectile>();
 			fireDirection = (worldPos - firePostion.position).normalized;
-			projectile.Init(gameObject);
 			projectile.SetVelocity(fireDirection);
 			_quiver.DecreaseArrows();
 			StartCoroutine(AttackDelay());
@@ -55,8 +54,6 @@ namespace Weapon
 			yield return new WaitForSeconds(AttackSpeed);
 			_canFire = true;
 		}
-
-
 
 		private void Flip()
 		{

@@ -17,12 +17,19 @@ namespace Enemy
 		private void Start()
 		{
 			CurrentHealth = MaxHealth;
-		
-			
 		}
 
 		public void DealDamage(float amount)
 		{
+			CurrentHealth -= amount;
+
+			if (CurrentHealth <= 0)
+			{
+				CurrentHealth = 0;
+				OnDeath?.Invoke();
+			}
+
+			OnHealthChanged?.Invoke(CurrentHealth);
 		}
 
 		public void HealHealth(float amount)
@@ -35,7 +42,7 @@ namespace Enemy
 
             if (CurrentHealth <= 0)
             {
-				Destroy(gameObject);     
+				Destroy(gameObject);
 			}
         }
 		
