@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Ground
   - Enemy
+  - OneWayPlatform
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Enemy Bullet
   - Player
   - Player Arrow
-  - 
+  - One Way Platform
   - 
   - 
   - 

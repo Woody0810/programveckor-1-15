@@ -23,6 +23,8 @@ namespace Enemy.Base
 		public bool IsAttacking { get; set; }
 		public bool IsGrounded { get; set; }
 
+		public Animator EnemyAnimator { get; set; }
+
 		#region State Machine Variables
 
 		public EnemyStateMachine EnemyStateMachine { get; set; }
@@ -34,6 +36,7 @@ namespace Enemy.Base
 
 		private void Start()
 		{
+			EnemyAnimator = GetComponent<Animator>();
 			Rb = GetComponent<Rigidbody2D>();
 
 			EnemyStateMachine = new EnemyStateMachine();

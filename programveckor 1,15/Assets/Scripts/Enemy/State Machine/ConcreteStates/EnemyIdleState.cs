@@ -44,6 +44,8 @@ namespace Enemy.State_Machine.ConcreteStates
 				_newVelocity *= -1;
 				Enemy.SetIsAgainstLedge(false);
 			}
+
+			Enemy.EnemyAnimator.SetFloat("Horizontal", Mathf.Abs(_newVelocity.x));
 		}
 
 		public override void PhysicsUpdate()

@@ -31,6 +31,8 @@ namespace Enemy.State_Machine.ConcreteStates
 			_direction = (Enemy.PlayerTarget.transform.position - Enemy.transform.position).normalized;
 			_direction.y = 0;
 			_direction.x *= Enemy.EnemyChaseSpeed;
+
+			Enemy.EnemyAnimator.SetFloat("Horizontal", Mathf.Abs(_direction.x));
 		}
 
 		public override void PhysicsUpdate()
