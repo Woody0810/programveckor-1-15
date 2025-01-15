@@ -26,7 +26,7 @@ namespace Effects
 
 			while (elapsedTime < totalTime)
 			{
-				_health.DealDamage(damagePerTick);
+				_health.TakeDamage(damagePerTick);
 				yield return new WaitForSeconds(tick);
 				elapsedTime += tick;
 			}

@@ -17,7 +17,7 @@ public class damage : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             var eHealth = collision.gameObject.GetComponent<EnemyHealth>();
-            eHealth.DealDamage(10);
+            eHealth.TakeDamage(10);
         }
 
         StartCoroutine(Returnarrow());

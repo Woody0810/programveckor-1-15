@@ -11,7 +11,7 @@ public class slimeballdamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        PlayerHealth.DealDamage(10);
+        PlayerHealth.TakeDamage(10);
         Destroy(gameObject);
     }
 

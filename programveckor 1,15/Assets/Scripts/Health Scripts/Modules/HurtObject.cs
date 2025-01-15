@@ -16,7 +16,7 @@ namespace Health_Scripts.Modules
 				if (!other.gameObject.CompareTag(targetTag)) continue;
 				if (other.gameObject.TryGetComponent<IHealth>(out var health))
 				{
-					health.DealDamage(damageAmount);
+					health.TakeDamage(damageAmount);
 					Destroy(gameObject);
 				}
 			}

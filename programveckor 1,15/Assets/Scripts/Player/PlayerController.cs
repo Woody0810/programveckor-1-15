@@ -56,7 +56,7 @@ namespace Player
 
 		private float _moveY;
 
-		public bool IsFacingLeft { get; private set; } = true;
+		public bool IsFacingRight { get; private set; } = true;
 
 		#endregion
 
@@ -95,6 +95,7 @@ namespace Player
 			{
 				_isJumping = false;
 				_remainingJumps = maxJumps;
+				_animator.SetBool("Jumping", false);
 			}
 
 			if (Input.GetButtonDown("Jump"))
@@ -104,20 +105,22 @@ namespace Player
 					_isJumping = true;
 					_rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
 					_remainingJumps--;
+					_animator.SetBool("Jumping", true);
 				}
 			}
 
 			if (IsAgainstWall())
 			{
 				_remainingJumps = 1;
-				Debug.Log(_remainingJumps);
 				_rb.velocity = new Vector2(0, -0.2f);
+				_animator.SetBool("Jumping", false);
 			}
 
 			if (IsAgainstClimableWall())
 			{
 				_moveY = Input.GetAxisRaw("Vertical");
-				_rb.velocity = new Vector2(_rb.velocity.x, _moveY * wallClimbSpeed);
+				_rb.velocity = new Vector2(0, _moveY * wallClimbSpeed);
+				_animator.SetBool("Jumping", false);
 			}
 
 			if (Input.GetKeyDown(KeyCode.LeftShift) && _canDash)
@@ -125,7 +128,7 @@ namespace Player
 				StartCoroutine(Dash());
 			}
 
-			_animator.SetFloat(Horizontal, Mathf.Abs(_directionX));
+			_animator.SetFloat("Horizontal Speed", Mathf.Abs(_directionX));
 
 			Flip();
 		}
@@ -136,12 +139,15 @@ namespace Player
 			_rb.velocity = new Vector2(_directionX * moveSpeed, _rb.velocity.y);
 		}
 
+		/// <summary>
+		/// Flips the player based on the current direction and x
+		/// </summary>
 		private void Flip()
 		{
-			if (IsFacingLeft && _directionX > 0f || !IsFacingLeft && _directionX < 0f)
+			if (IsFacingRight && _directionX < 0f || !IsFacingRight && _directionX > 0f)
 			{
 				var localScale = transform.localScale;
-				IsFacingLeft = !IsFacingLeft;
+				IsFacingRight = !IsFacingRight;
 				localScale.x *= -1;
 				transform.localScale = localScale;
 			}
@@ -168,13 +174,17 @@ namespace Player
 
 		#endregion
 
+		/// <summary>
+		/// Coroutine for dashing
+		/// </summary>
+		/// <returns>Cooldown for dashing</returns>
 		private IEnumerator Dash()
 		{
 			_canDash = false;
 			_isDashing = true;
 			var originalGravity = _rb.gravityScale;
 			_rb.gravityScale = 0;
-			_rb.velocity = new Vector2(-transform.localScale.x * dashingPower, 0f);
+			_rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
 			_playerHealth.IsDamagable = false;
 			_playerHealth.IsEffectable = false;
 

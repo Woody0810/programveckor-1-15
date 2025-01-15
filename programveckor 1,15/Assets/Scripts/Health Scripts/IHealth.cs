@@ -10,7 +10,7 @@ namespace Health_Scripts
 		public event Action<float> OnHealthChanged;
 		public event Action OnDeath;
 
-		public void DealDamage(float amount);
+		public void TakeDamage(float amount);
 
 		public void HealHealth(float amount);
 	}

@@ -19,7 +19,7 @@ namespace Enemy
 			CurrentHealth = MaxHealth;
 		}
 
-		public void DealDamage(float amount)
+		public void TakeDamage(float amount)
 		{
 			CurrentHealth -= amount;
 
@@ -45,6 +45,5 @@ namespace Enemy
 				Destroy(gameObject);
 			}
         }
-		
 	}
 }

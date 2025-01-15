@@ -26,7 +26,7 @@ namespace Weapon.Projectiles
 			if (other.gameObject.CompareTag("Player"))
 			{
 				var pHealth = other.gameObject.GetComponent<PlayerHealth>();
-				pHealth.DealDamage(10);
+				pHealth.TakeDamage(10);
 			}
 
 			Destroy(gameObject);

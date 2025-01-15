@@ -37,7 +37,7 @@ namespace Player
 			CurrentHealth = MaxHealth;
 		}
 
-		public void DealDamage(float amount)
+		public void TakeDamage(float amount)
 		{
 			if (!IsDamagable) return;
 

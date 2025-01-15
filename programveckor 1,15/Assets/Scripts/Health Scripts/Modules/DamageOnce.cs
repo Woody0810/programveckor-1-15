@@ -11,7 +11,7 @@ namespace Health_Scripts.Modules
 		{
 			if (Input.GetKeyDown(KeyCode.Y))
 			{
-				health.DealDamage(10);
+				health.TakeDamage(10);
 			}
 		}
 	}
