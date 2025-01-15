@@ -218,7 +218,7 @@ MonoBehaviour:
   ledgeDetector: {fileID: 6987360062609363565}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 4104
+    m_Bits: 8
   raycastDistance: 1.5
 --- !u!1 &6265567274513205817
 GameObject:
