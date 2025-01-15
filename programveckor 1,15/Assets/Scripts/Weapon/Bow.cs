@@ -16,7 +16,6 @@ namespace Weapon
 
 		[field: SerializeField] public float AttackSpeed { get; set; }
 		[field: SerializeField] public float Damage { get; set; }
-		public float Arrowreturn;
 
 		private bool _canFire = true;
 		private Vector3 _parentScale;
@@ -40,9 +39,9 @@ namespace Weapon
 
 		public void Attack()
 		{
-			var worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			var mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			var projectile = Instantiate(bullet, firePostion.position, Quaternion.identity).GetComponent<IProjectile>();
-			fireDirection = (worldPos - firePostion.position).normalized;
+			fireDirection = (mousePos - firePostion.position).normalized;
 			projectile.SetVelocity(fireDirection);
 			_quiver.DecreaseArrows();
 			StartCoroutine(AttackDelay());

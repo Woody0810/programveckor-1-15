@@ -6,30 +6,23 @@ namespace Weapon.Projectiles
 {
 	public class SlimeSpit : MonoBehaviour, IProjectile
 	{
+		[SerializeField] private bool isAffectedByGravity;
+		[SerializeField] private float speed;
+
 		private Rigidbody2D _rb;
 
 		private void Awake()
 		{
 			_rb = GetComponent<Rigidbody2D>();
+			if (!isAffectedByGravity) _rb.gravityScale = 0;
 		}
 
 		public void Init(GameObject creator = null) { }
 
 		public void SetVelocity(Vector2 newVelocity)
 		{
+			newVelocity *= speed;
 			_rb.velocity = newVelocity;
-			Destroy(gameObject, 5);
-		}
-
-		private void OnCollisionEnter2D(Collision2D other)
-		{
-			if (other.gameObject.CompareTag("Player"))
-			{
-				var pHealth = other.gameObject.GetComponent<PlayerHealth>();
-				pHealth.TakeDamage(10);
-			}
-
-			Destroy(gameObject);
 		}
 	}
 }

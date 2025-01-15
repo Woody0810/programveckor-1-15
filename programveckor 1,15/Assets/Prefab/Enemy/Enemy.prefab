@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1000480f62ca42819fb681b0cef456f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 3919821681548270342, guid: e6d87be2b66759548a860ef88d5f7069, type: 3}
+  bullet: {fileID: 8027604985595467125, guid: 71955edcc71fc5245ab3ffdb9b3cc029, type: 3}
   <PlayerTarget>k__BackingField: {fileID: 0}
   <EnemyChaseSpeed>k__BackingField: 3
   <EnemyProjectileSpeed>k__BackingField: 3

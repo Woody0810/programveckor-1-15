@@ -42,7 +42,7 @@ namespace Enemy.State_Machine.ConcreteStates
 			{
 				_timer = 0;
 
-				var direction = (Enemy.PlayerTarget.transform.position - Enemy.transform.position).normalized * Enemy.EnemyProjectileSpeed;
+				var direction = (Enemy.PlayerTarget.transform.position - Enemy.transform.position).normalized;
 				var bullet = GameObject.Instantiate(_bullet, Enemy.transform.position, Quaternion.identity).GetComponent<IProjectile>();
 				bullet.SetVelocity(direction);
 			}

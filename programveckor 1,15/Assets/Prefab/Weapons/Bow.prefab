@@ -88,7 +88,7 @@ Transform:
   m_GameObject: {fileID: 1794882938210644133}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.574, y: -0.016, z: 0}
+  m_LocalPosition: {x: 0.574, y: -0.016, z: 0}
   m_LocalScale: {x: 0.2358, y: 0.2358, z: 0.2358}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -166,7 +166,6 @@ MonoBehaviour:
   firePostion: {fileID: 5387585292273930227}
   <AttackSpeed>k__BackingField: 0.5
   <Damage>k__BackingField: 1
-  Arrowreturn: 6
 --- !u!1 &2895824451244756224
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,7 +266,7 @@ Transform:
   m_GameObject: {fileID: 4979941829077340168}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.54, y: -0.000000007899259, z: 0}
+  m_LocalPosition: {x: 0.48, y: -0.000000007899259, z: 0}
   m_LocalScale: {x: 4.2408824, y: 4.2408824, z: 4.2408824}
   m_ConstrainProportionsScale: 0
   m_Children: []

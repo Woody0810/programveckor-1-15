@@ -26,6 +26,13 @@ namespace Weapon.Projectiles
 			if (!isAffectedByGravity) _rb.gravityScale = 0;
 		}
 
+		private void Update()
+		{
+			var velocity = _rb.velocity;
+			var zAngle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg + -45;
+			transform.rotation = Quaternion.Euler(0, 0, zAngle);
+		}
+
 		public void Init(GameObject creator)
 		{
 			transform.localScale = creator.transform.localScale;

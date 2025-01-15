@@ -35,7 +35,7 @@ namespace Weapon
 			StartCoroutine(ReturnArrowAfterDelay());
 		}
 
-		public void UpdateSprite()
+		private void UpdateSprite()
 		{
 			if (_currentSpriteIndex >= sprites.Length) _currentSpriteIndex = arrowsLeft;
 			else if (_currentSpriteIndex <= 0) _currentSpriteIndex = 0;

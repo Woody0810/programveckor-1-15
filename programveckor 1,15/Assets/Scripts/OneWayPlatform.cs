@@ -23,7 +23,6 @@ public class OneWayPlatform : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("OneWayPlatform"))
 		{
-			Debug.Log("Got here");
 			_currentPlatform = other.gameObject;
 		}
 	}
