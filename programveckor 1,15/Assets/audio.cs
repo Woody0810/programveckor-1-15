@@ -20,35 +20,33 @@ public class audio : MonoBehaviour
     public AudioClip mainmenu;
 
     public bool isInCurrentScene;
+    public string lastScene;
 
     public void Update()
     {
         Scene currentScene = SceneManager.GetActiveScene();
-        if (isInCurrentScene) return;
-        else
-        {
-            isInCurrentScene = false;
-        }
 
-        if (currentScene.name == "Adrian Tilemap Test" && !isInCurrentScene) 
+        if (lastScene == currentScene.name) return;
+
+        if (currentScene.name == "Adrian Tilemap Test" || currentScene.name == "settings") 
 {        musicSource.clip = Backround1;
             musicSource.Play();
-            isInCurrentScene = true;
             Debug.Log("Adrian");
+            lastScene = currentScene.name;
         }    
-        else if (currentScene.name == "Main meny" && !isInCurrentScene)
+        else if (currentScene.name == "main meny")
         {
             musicSource.clip = mainmenu;
             musicSource.Play();
-            isInCurrentScene = true;
             Debug.Log("Main");
+            lastScene = currentScene.name;
         }
-        else if (currentScene.name == "Alberbana" && !isInCurrentScene&& !isInCurrentScene)
+        else if (currentScene.name == "Alberbana")
         {
             musicSource.clip = Backround2;
             musicSource.Play();
-            isInCurrentScene = true;
             Debug.Log("Alber");
+            lastScene = currentScene.name;
         }
     }
     

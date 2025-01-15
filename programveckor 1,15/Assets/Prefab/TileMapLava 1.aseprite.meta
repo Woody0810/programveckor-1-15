@@ -719,8 +719,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava 1_29
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -744,8 +744,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava 1_31
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -1247,8 +1247,8 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   - name: TileMapLava 1_53
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
