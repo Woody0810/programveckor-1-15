@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using Effects.Interfaces;
+using Player;
 using UnityEngine;
 using Weapon.Interfaces;
 

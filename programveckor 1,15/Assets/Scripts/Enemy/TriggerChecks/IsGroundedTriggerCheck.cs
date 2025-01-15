@@ -1,12 +1,13 @@
 ﻿using System;
 using Enemy.Base;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Enemy.TriggerChecks
 {
 	public class IsGroundedTriggerCheck : MonoBehaviour
 	{
-		[SerializeField] private string groundTag;
+		[SerializeField] private LayerMask groundLayers;
 		private BaseEnemy _enemy;
 
 		private void Start()
@@ -16,12 +17,14 @@ namespace Enemy.TriggerChecks
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			if (other.gameObject.CompareTag(groundTag)) _enemy.SetIsGrounded(true);
+			if (other.gameObject.layer == LayerMask.NameToLayer("Ground") ||
+			    other.gameObject.layer == LayerMask.NameToLayer("One Way Platform")) _enemy.SetIsGrounded(true);
 		}
 
 		private void OnTriggerExit2D(Collider2D other)
 		{
-			if (other.gameObject.CompareTag(groundTag)) _enemy.SetIsGrounded(false);
+			if (other.gameObject.layer == LayerMask.NameToLayer("Ground") ||
+			    other.gameObject.layer == LayerMask.NameToLayer("One Way Platform")) _enemy.SetIsGrounded(false);
 		}
 	}
 }

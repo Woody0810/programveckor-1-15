@@ -452,7 +452,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1932116671026868934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -638,4 +638,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aae25c9186540838bf50639ff154064, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundTag: Ground
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 4104

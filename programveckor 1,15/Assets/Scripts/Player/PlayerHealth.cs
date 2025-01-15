@@ -17,13 +17,10 @@ namespace Player
 		public Queue<Coroutine> Effects { get; set; }
 
 		public bool IsDamagable { get; set; } = true;
-		public bool IsEffectable { get; set; }
+		public bool IsEffectable { get; set; } = true;
 
 		public event Action<float> OnHealthChanged;
 		public event Action OnDeath;
-
-
-
 
 		private void OnEnable()
 		{
@@ -38,6 +35,7 @@ namespace Player
 		private void Start()
 		{
 			CurrentHealth = MaxHealth;
+			Effects = new Queue<Coroutine>();
 		}
 
 		public void TakeDamage(float amount)
@@ -65,7 +63,11 @@ namespace Player
 
 		public void ApplyEffect(IEffect effect)
 		{
-			throw new NotImplementedException();
+			if (!IsEffectable) return;
+			effect.Init(gameObject);
+			if (!effect.IsStackable && Effects.Count >= 1) return;
+
+			Effects.Enqueue(StartCoroutine(effect.Effect(Effects)));
 		}
 
 		private void Death()
