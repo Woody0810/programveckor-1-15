@@ -22,6 +22,7 @@ namespace Enemy.Base
 		public bool IsAggroed { get; set; }
 		public bool IsAttacking { get; set; }
 		public bool IsGrounded { get; set; }
+		public bool CanChase { get; set; }
 
 		public Animator EnemyAnimator { get; set; }
 
@@ -88,5 +89,7 @@ namespace Enemy.Base
 		public void SetIsGrounded(bool isGrounded) => IsGrounded = isGrounded;
 
 		public void SetIsAgainstLedge(bool isAgainstLedge) => IsAgainstLedge = isAgainstLedge;
+
+		public void SetCanChase(bool canChase) => CanChase = canChase;
 	}
 }

@@ -25,8 +25,24 @@ namespace Enemy.State_Machine.ConcreteStates
 		{
 			base.FrameUpdate();
 
-			if (!Enemy.IsAggroed) StateMachine.ChangeState(Enemy.IdleState);
-			if (Enemy.IsAttacking) StateMachine.ChangeState(Enemy.AttackState);
+			if (!Enemy.IsAggroed)
+			{
+				StateMachine.ChangeState(Enemy.IdleState);
+				return;
+			}
+
+			if (Enemy.IsAttacking)
+			{
+				StateMachine.ChangeState(Enemy.AttackState);
+				return;
+			}
+
+			if (Enemy.PlayerTarget.transform.position.y < Enemy.transform.position.y || Enemy.IsAgainstLedge)
+			{
+				Enemy.SetCanChase(false);
+				StateMachine.ChangeState(Enemy.IdleState);
+				return;
+			}
 
 			_direction = (Enemy.PlayerTarget.transform.position - Enemy.transform.position).normalized;
 			_direction.y = 0;

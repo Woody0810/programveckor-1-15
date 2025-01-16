@@ -18,7 +18,7 @@ namespace Enemy.TriggerChecks
 
 		private void OnTriggerEnter2D(Collider2D other)
 		{
-			if (other.gameObject == _player)
+			if (other.gameObject == _player && _enemy.CanChase)
 			{
 				_enemy.SetIsAggroed(true);
 			}

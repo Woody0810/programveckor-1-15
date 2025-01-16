@@ -10,15 +10,13 @@ namespace Player
 {
 	
 	[Serializable]
-	public class PlayerHealth : MonoBehaviour, IHealth, IEffectable
+	public class PlayerHealth : MonoBehaviour, IHealth
 	{
         [field: SerializeField] public float MaxHealth { get; set; }
 		public float CurrentHealth { get; set; }
 		public Queue<Coroutine> Effects { get; set; }
 
 		public bool IsDamagable { get; set; } = true;
-		public bool IsEffectable { get; set; } = true;
-
 		public event Action<float> OnHealthChanged;
 		public event Action OnDeath;
 
@@ -59,15 +57,6 @@ namespace Player
 			CurrentHealth = Mathf.Clamp(CurrentHealth, 0, MaxHealth);
 
 			OnHealthChanged?.Invoke(CurrentHealth);
-		}
-
-		public void ApplyEffect(IEffect effect)
-		{
-			if (!IsEffectable) return;
-			effect.Init(gameObject);
-			if (!effect.IsStackable && Effects.Count >= 1) return;
-
-			Effects.Enqueue(StartCoroutine(effect.Effect(Effects)));
 		}
 
 		private void Death()

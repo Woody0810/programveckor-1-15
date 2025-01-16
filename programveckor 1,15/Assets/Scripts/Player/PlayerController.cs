@@ -186,13 +186,11 @@ namespace Player
 			_rb.gravityScale = 0;
 			_rb.velocity = new Vector2(transform.localScale.x * dashingPower, 0f);
 			_playerHealth.IsDamagable = false;
-			_playerHealth.IsEffectable = false;
 
 			yield return new WaitForSeconds(dashingTime);
 
 			_rb.gravityScale = originalGravity;
 			_playerHealth.IsDamagable = true;
-			_playerHealth.IsEffectable = true;
 			_isDashing = false;
 
 			yield return new WaitForSeconds(dashingCooldown);

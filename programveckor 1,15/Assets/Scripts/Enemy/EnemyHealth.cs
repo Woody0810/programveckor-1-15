@@ -35,6 +35,7 @@ namespace Enemy
 		public void HealHealth(float amount)
 		{
 		}
+
 		public void Takedamage(int damage)
 		{
 			CurrentHealth -= damage;
