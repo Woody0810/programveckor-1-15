@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AlbertBana.unity
     guid: 262b27a04979d4f46bfb4cb5975d657c
+  - enabled: 1
+    path: Assets/Scenes/Test Enter Scene.unity
+    guid: 2e0ca2cc72493cc4c8a3aa6863db39d8
   m_configObjects: {}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dfe5fb9096903a14c87858afdea327cf
+guid: 711cb5f11bc5b83448a88e7a9cd973a7
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -97,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638726539097497643
+  platformSettingsDirtyTick: 638726537503465555
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -121,7 +121,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Door1
+  - name: Door2
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 9
@@ -130,9 +130,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 52
-      height: 69
-    spriteID: 4bb7e42969f35374ab26c974df7efcbf
+      width: 48
+      height: 70
+    spriteID: 796fced565e87854694eed3fe2e780ca
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,7 +142,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: Door1_0
+  - name: Door2_0
     originalName: 
     pivot: {x: 0.5, y: 0.5}
     alignment: 0
@@ -151,9 +151,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 52
-      height: 69
-    spriteID: c455e8c62f955e648a390793e097ac5b
+      width: 48
+      height: 70
+    spriteID: edae933208356924fbe6974d3240075b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -164,21 +164,21 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -453168501
-    name: Door1
+    guid: -453169692
+    name: Door2
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Door1
+    - name: Door2
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
         x: 0
         y: 0
-        width: 52
-        height: 69
-      spriteId: 4bb7e42969f35374ab26c974df7efcbf
+        width: 48
+        height: 70
+      spriteId: 796fced565e87854694eed3fe2e780ca
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -200,7 +200,7 @@ ScriptedImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     forceMaximumCompressionQuality_BC6H_BC7: 0
     crunchedCompression: 0
@@ -221,4 +221,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 52, y: 69}
+  canvasSize: {x: 48, y: 70}

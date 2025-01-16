@@ -23,12 +23,12 @@ namespace Enemy
 
 		private void OnEnable()
 		{
-			OnDeath += DestroyOnDeath;
+			OnDeath += Death;
 		}
 
 		private void OnDisable()
 		{
-			OnDeath -= DestroyOnDeath;
+			OnDeath -= Death;
 		}
 
 		private void Start()
@@ -47,9 +47,7 @@ namespace Enemy
 			if (CurrentHealth <= 0)
 			{
 				CurrentHealth = 0;
-				Destroy(gameObject);
-				PlayerHealth pHealth = FindObjectOfType<PlayerHealth>();
-				pHealth.HealHealth(2);
+				OnDeath?.Invoke();
 			}
 
 			OnHealthChanged?.Invoke(CurrentHealth);
@@ -70,8 +68,9 @@ namespace Enemy
 			}
         }
 
-		private void DestroyOnDeath()
+		private void Death()
 		{
+			PlayerManager.Instance.PlayerHealth.HealHealth(2.5f);
 			Destroy(gameObject);
 		}
 	}

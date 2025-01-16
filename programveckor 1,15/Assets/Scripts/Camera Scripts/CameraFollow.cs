@@ -5,7 +5,7 @@ namespace Camera_Scripts
 {
 	public class CameraFollow : MonoBehaviour
 	{
-		public Transform target;
+		public Transform Target { get; set; }
 		public Vector3 offset;
 		public float smoothSpeed = 0.03f;
 
@@ -13,9 +13,9 @@ namespace Camera_Scripts
 
 		private void FixedUpdate()
 		{
-			if (!target) return;
+			if (!Target) return;
 
-			var desiredPosition = target.position + offset;
+			var desiredPosition = Target.position + offset;
 			transform.position = Vector3.SmoothDamp(transform.position, desiredPosition, ref _velocity, smoothSpeed);
 		}
 	}
