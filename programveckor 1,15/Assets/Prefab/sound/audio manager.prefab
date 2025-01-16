@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 3178601289903585051}
   m_Layer: 0
   m_Name: audio manager
-  m_TagString: Untagged
+  m_TagString: Audio
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -303,11 +303,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicSource: {fileID: 3901525701862868498}
-  Source: {fileID: 4029352757058249342}
+  SFXSource: {fileID: 4029352757058249342}
   Backround1: {fileID: 8300000, guid: 60a0e298e1739f44496c8868c2ada52c, type: 3}
   Backround2: {fileID: 8300000, guid: d39824df1cb73794397d1448c7834770, type: 3}
   Door: {fileID: 8300000, guid: f100ee8e41db63842b2b6daeffe09741, type: 3}
   heartbeat: {fileID: 0}
   Bigpunch: {fileID: 8300000, guid: 7b8693f5947157143a90908d94688878, type: 3}
   Slash: {fileID: 8300000, guid: 17e7ca2d43433f5469af9a278b5111c7, type: 3}
-  mainmenu: {fileID: 0}
+  mainmenu: {fileID: 8300000, guid: 286f3f8e808ee184395485c0c199bbc1, type: 3}
+  isInCurrentScene: 1
+  lastScene: 
