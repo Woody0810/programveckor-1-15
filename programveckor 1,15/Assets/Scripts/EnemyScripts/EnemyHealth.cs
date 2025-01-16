@@ -10,15 +10,35 @@ namespace Enemy
 		[field: SerializeField] public float MaxHealth { get; set; }
 		public float CurrentHealth { get; set; }
 
+		/// <summary>
+		/// Event that gets called when the health changes, takes in the current health as a paramater
+		/// </summary>
 		public event Action<float> OnHealthChanged;
+
+		/// <summary>
+		/// Event that gets called when the objects health is less than or equal to 0
+		/// </summary>
 		public event Action OnDeath;
 
+		private void OnEnable()
+		{
+			OnDeath += DestroyOnDeath;
+		}
+
+		private void OnDisable()
+		{
+			OnDeath -= DestroyOnDeath;
+		}
 
 		private void Start()
 		{
 			CurrentHealth = MaxHealth;
 		}
 
+		/// <summary>
+		/// Takes damage
+		/// </summary>
+		/// <param name="amount">The amount of damage</param>
 		public void TakeDamage(float amount)
 		{
 			CurrentHealth -= amount;
@@ -46,5 +66,10 @@ namespace Enemy
 				Destroy(gameObject);
 			}
         }
+
+		private void DestroyOnDeath()
+		{
+			Destroy(gameObject);
+		}
 	}
 }

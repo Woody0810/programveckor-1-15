@@ -1,10 +1,9 @@
-﻿using System;
-using Enemy.State_Machine;
-using Enemy.State_Machine.ConcreteStates;
-using Health_Scripts;
+﻿using Enemy;
+using EnemyScripts.State_Machine;
+using EnemyScripts.State_Machine.ConcreteStates;
 using UnityEngine;
 
-namespace Enemy.Base
+namespace EnemyScripts.Base
 {
 	public class BaseEnemy : MonoBehaviour
 	{
@@ -22,7 +21,6 @@ namespace Enemy.Base
 		public bool IsAggroed { get; set; }
 		public bool IsAttacking { get; set; }
 		public bool IsGrounded { get; set; }
-		public bool CanChase { get; set; }
 
 		public Animator EnemyAnimator { get; set; }
 
@@ -30,7 +28,6 @@ namespace Enemy.Base
 
 		public EnemyStateMachine EnemyStateMachine { get; set; }
 		public EnemyIdleState IdleState { get; set; }
-		public EnemyChasingState ChasingState { get; set; }
 		public EnemyAttackState AttackState { get; set; }
 
 		#endregion
@@ -42,7 +39,6 @@ namespace Enemy.Base
 
 			EnemyStateMachine = new EnemyStateMachine();
 			IdleState = new EnemyIdleState(this, EnemyStateMachine);
-			ChasingState = new EnemyChasingState(this, EnemyStateMachine);
 			AttackState = new EnemyAttackState(this, EnemyStateMachine, bullet);
 
 			EnemyStateMachine.Init(IdleState);
@@ -89,7 +85,5 @@ namespace Enemy.Base
 		public void SetIsGrounded(bool isGrounded) => IsGrounded = isGrounded;
 
 		public void SetIsAgainstLedge(bool isAgainstLedge) => IsAgainstLedge = isAgainstLedge;
-
-		public void SetCanChase(bool canChase) => CanChase = canChase;
 	}
 }

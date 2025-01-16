@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Enemy.State_Machine
+﻿namespace EnemyScripts.State_Machine
 {
 	public class EnemyStateMachine
 	{

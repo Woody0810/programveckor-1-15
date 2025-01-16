@@ -1,8 +1,7 @@
-﻿using System;
-using Enemy.Base;
+﻿using EnemyScripts.Base;
 using UnityEngine;
 
-namespace Enemy.TriggerChecks
+namespace EnemyScripts.TriggerChecks
 {
 	public class AgainstWallTriggerCheck : MonoBehaviour
 	{

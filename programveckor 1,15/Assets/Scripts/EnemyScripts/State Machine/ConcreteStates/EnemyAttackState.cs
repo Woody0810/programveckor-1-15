@@ -1,15 +1,14 @@
-﻿using System.Collections;
-using Enemy.Base;
+﻿using EnemyScripts.Base;
 using UnityEngine;
 using Weapon.Interfaces;
 
-namespace Enemy.State_Machine.ConcreteStates
+namespace EnemyScripts.State_Machine.ConcreteStates
 {
 	public class EnemyAttackState : EnemyState
 	{
 		private GameObject _bullet;
 
-		private float _timeBetweenShots = 0.75f;
+		private float _timeBetweenShots = 1.5f;
 		private float _timer;
 		private IProjectile _projectile;
 
@@ -34,9 +33,13 @@ namespace Enemy.State_Machine.ConcreteStates
 		{
 			base.FrameUpdate();
 
-			Enemy.SetVelocity(Vector2.zero);
+			if (!Enemy.IsAttacking)
+			{
+				Enemy.EnemyStateMachine.ChangeState(Enemy.IdleState);
+				return;
+			}
 
-			if (!Enemy.IsAttacking) StateMachine.ChangeState(Enemy.ChasingState);
+			Enemy.SetVelocity(Vector2.zero);
 
 			if (_timer > _timeBetweenShots)
 			{

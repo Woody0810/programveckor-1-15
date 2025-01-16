@@ -1,8 +1,7 @@
-﻿using Enemy.Base;
-using Unity.VisualScripting;
+﻿using EnemyScripts.Base;
 using UnityEngine;
 
-namespace Enemy.State_Machine.ConcreteStates
+namespace EnemyScripts.State_Machine.ConcreteStates
 {
 	public class EnemyIdleState : EnemyState
 	{
@@ -28,9 +27,10 @@ namespace Enemy.State_Machine.ConcreteStates
 		{
 			base.FrameUpdate();
 
-			if (Enemy.IsAggroed)
+			if (Enemy.IsAttacking)
 			{
-				StateMachine.ChangeState(Enemy.ChasingState);
+				Enemy.EnemyStateMachine.ChangeState(Enemy.AttackState);
+				return;
 			}
 
 			if (Enemy.IsAgainstWall)

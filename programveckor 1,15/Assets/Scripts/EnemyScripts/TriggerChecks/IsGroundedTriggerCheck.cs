@@ -1,9 +1,7 @@
-﻿using System;
-using Enemy.Base;
+﻿using EnemyScripts.Base;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Enemy.TriggerChecks
+namespace EnemyScripts.TriggerChecks
 {
 	public class IsGroundedTriggerCheck : MonoBehaviour
 	{
