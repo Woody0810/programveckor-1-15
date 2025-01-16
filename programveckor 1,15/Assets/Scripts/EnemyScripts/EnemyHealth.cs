@@ -1,5 +1,6 @@
 ﻿using System;
 using Health_Scripts;
+using Player;
 using UnityEngine;
 
 namespace Enemy
@@ -46,7 +47,9 @@ namespace Enemy
 			if (CurrentHealth <= 0)
 			{
 				CurrentHealth = 0;
-				OnDeath?.Invoke();
+				Destroy(gameObject);
+				PlayerHealth pHealth = FindObjectOfType<PlayerHealth>();
+				pHealth.HealHealth(2);
 			}
 
 			OnHealthChanged?.Invoke(CurrentHealth);

@@ -14,6 +14,13 @@ public class AttackMele : MonoBehaviour
     public LayerMask whatIsEnemies;
     public int damage;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
+    }
+
     void Update()
     {
         if (timeBtwAttack <= 0)
@@ -26,15 +33,16 @@ public class AttackMele : MonoBehaviour
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(damage);
+                    audioManager.PlaySFX(audioManager.Bigpunch);
                     Debug.Log("pow enemy");
                 }
 
-                timeBtwAttack = startTimeBtwAttack; // Reset time between attacks after attack is executed
+                timeBtwAttack = startTimeBtwAttack;
             }
         }
         else
         {
-            timeBtwAttack -= Time.deltaTime; // Decrement timeBtwAttack with time
+            timeBtwAttack -= Time.deltaTime;
         }
     }
 }

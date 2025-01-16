@@ -4,11 +4,11 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class audio : MonoBehaviour
+public class AudioManager : MonoBehaviour
 {
     [Header("Audio score")]
     [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource Source;
+    [SerializeField] AudioSource SFXSource;
 
     [HeaderAttribute("Audioclip")]
     public AudioClip Backround1;
@@ -22,6 +22,13 @@ public class audio : MonoBehaviour
     public bool isInCurrentScene;
     public string lastScene;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
+    }
+
     public void Update()
     {
         Scene currentScene = SceneManager.GetActiveScene();
@@ -31,6 +38,7 @@ public class audio : MonoBehaviour
         if (currentScene.name == "Adrian Tilemap Test" || currentScene.name == "settings") 
 {        musicSource.clip = Backround1;
             musicSource.Play();
+            audioManager.PlaySFX(audioManager.heartbeat);
             Debug.Log("Adrian");
             lastScene = currentScene.name;
         }    
@@ -45,10 +53,15 @@ public class audio : MonoBehaviour
         {
             musicSource.clip = Backround2;
             musicSource.Play();
+            audioManager.PlaySFX(audioManager.heartbeat);
             Debug.Log("Alber");
             lastScene = currentScene.name;
         }
+        
     }
-    
+    public void PlaySFX(AudioClip clip)
+    {
+        SFXSource.PlayOneShot(clip);
+    }
 }
 

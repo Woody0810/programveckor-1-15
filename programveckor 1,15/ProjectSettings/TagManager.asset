@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Enemy
   - OneWayPlatform
+  - Audio
   layers:
   - Default
   - TransparentFX
