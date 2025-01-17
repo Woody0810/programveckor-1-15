@@ -1,4 +1,5 @@
-﻿using Enemy;
+﻿using System;
+using Enemy;
 using EnemyScripts.State_Machine;
 using EnemyScripts.State_Machine.ConcreteStates;
 using UnityEngine;
@@ -31,6 +32,14 @@ namespace EnemyScripts.Base
 		public EnemyAttackState AttackState { get; set; }
 
 		#endregion
+
+		private void Awake()
+		{
+			if (PlayerTarget == null)
+			{
+				PlayerTarget = GameObject.FindGameObjectWithTag("Player");
+			}
+		}
 
 		private void Start()
 		{
