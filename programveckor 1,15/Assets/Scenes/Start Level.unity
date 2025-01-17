@@ -242,10 +242,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8364309199424129973, guid: 59f4ecb9e6eb76441907285c5c8d4a56, type: 3}
-      propertyPath: attackPos
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
