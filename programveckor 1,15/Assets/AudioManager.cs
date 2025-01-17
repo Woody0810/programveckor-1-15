@@ -35,7 +35,7 @@ public class AudioManager : MonoBehaviour
 
         if (lastScene == currentScene.name) return;
 
-        if (currentScene.name == "Adrian Tilemap Test" || currentScene.name == "settings") 
+        if (currentScene.name == "Start level" || currentScene.name == "settings") 
 {        musicSource.clip = Backround1;
             musicSource.Play();
             audioManager.PlaySFX(audioManager.heartbeat);
@@ -55,6 +55,14 @@ public class AudioManager : MonoBehaviour
             musicSource.Play();
             audioManager.PlaySFX(audioManager.heartbeat);
             Debug.Log("Alber");
+            lastScene = currentScene.name;
+        } 
+        else if (currentScene.name == "Woody bana")
+        {
+            musicSource.clip = Backround2;
+            musicSource.Play();
+            audioManager.PlaySFX(audioManager.heartbeat);
+            Debug.Log("Woody");
             lastScene = currentScene.name;
         }
         
