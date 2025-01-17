@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start Level.unity
     guid: c06e8bdcefe73c04db6953a8d7420f9e
+  - enabled: 1
+    path: Assets/Scenes/Woody Bana 2.unity
+    guid: d9e747606b1ca394895410c56f4d633c
   m_configObjects: {}
