@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4819994107613357335}
-  - component: {fileID: 7326087150094134919}
   - component: {fileID: 8215493158822938050}
   - component: {fileID: 7842466878460078063}
+  - component: {fileID: 522466626541627186}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -34,25 +34,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4209020510386236539}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
---- !u!114 &7326087150094134919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3126084098382949132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0f2ff86b9af1f440b53349978940da1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startTimeBtwAttack: 0.5
-  attackPos: {fileID: 1243553396567617364}
-  attackRange: 3
-  whatIsEnemies:
-    serializedVersion: 2
-    m_Bits: 256
-  damage: 10
 --- !u!95 &8215493158822938050
 Animator:
   serializedVersion: 5
@@ -114,8 +95,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 8622919206038371559, guid: ef15e78f98173bd498076097d6f737c4, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,9 +104,29 @@ SpriteRenderer:
   m_Size: {x: 2, y: 1.40625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &522466626541627186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3126084098382949132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f2ff86b9af1f440b53349978940da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTimeBtwAttack: 0.5
+  attackPos: {fileID: 1243553396567617364}
+  attackRange: 3
+  whatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 256
+  damage: 10
+  animator: {fileID: 8215493158822938050}
 --- !u!1 &3655859461639160075
 GameObject:
   m_ObjectHideFlags: 0

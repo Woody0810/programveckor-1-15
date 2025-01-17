@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AttackMele : MonoBehaviour
 {
@@ -15,12 +16,11 @@ public class AttackMele : MonoBehaviour
     public int damage;
 
     AudioManager audioManager;
-    private Animator _animator;
+    [FormerlySerializedAs("_animator")] public Animator animator;
 
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -32,7 +32,7 @@ public class AttackMele : MonoBehaviour
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 Debug.Log("Amount of enemies: " + enemiesToDamage.Length);
 
-                _animator.Play("Slash");
+                animator.SetTrigger("Slash");
 
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
