@@ -3,11 +3,21 @@ using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 namespace Door
 {
+
 	public class Door : MonoBehaviour
 	{
-		[SerializeField] private string sceneName;
+        AudioManager audioManager;
+
+        private void Awake()
+        {
+            audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        }
+
+        [SerializeField] private string sceneName;
 		private bool _isInDoorRange;
 
 		private void OnTriggerEnter2D(Collider2D other)
@@ -26,7 +36,8 @@ namespace Door
 		{
 			if (_isInDoorRange && Input.GetKeyDown(KeyCode.E) && LevelManager.Instance.CompletedLevel)
 			{
-				SceneManager.LoadScene(sceneName);
+                audioManager.PlaySFX(audioManager.Bigpunch);
+                SceneManager.LoadScene(sceneName);
 			}
 		}
 	}
