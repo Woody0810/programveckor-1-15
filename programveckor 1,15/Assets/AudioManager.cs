@@ -64,6 +64,14 @@ public class AudioManager : MonoBehaviour
             audioManager.PlaySFX(audioManager.heartbeat);
             Debug.Log("Woody");
             lastScene = currentScene.name;
+        } 
+        else if (currentScene.name == "Woody Bana 2")
+        {
+            musicSource.clip = Backround2;
+            musicSource.Play();
+            audioManager.PlaySFX(audioManager.heartbeat);
+            Debug.Log("Woody");
+            lastScene = currentScene.name;
         }
         
     }
