@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Woody bana.unity
     guid: b038173886301d74fa6db822ecd0df01
+  - enabled: 1
+    path: Assets/Scenes/Start Level.unity
+    guid: c06e8bdcefe73c04db6953a8d7420f9e
   m_configObjects: {}

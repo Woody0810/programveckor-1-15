@@ -12,7 +12,7 @@ public class mainmenu : MonoBehaviour
 
     public void gotogame()
     {
-        SceneManager.LoadScene("SampleScene Adrian");
+        SceneManager.LoadScene("Start Level");
     }
 
     public void gotosettings()
@@ -28,7 +28,7 @@ public class mainmenu : MonoBehaviour
 
     public void gotoAdrianTilemap()
     {
-        SceneManager.LoadScene("Adrian Tilemap Test");
+        SceneManager.LoadScene("Start Level");
     }
 }
 
