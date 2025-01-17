@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4045423422251679800}
   - component: {fileID: 8023429224542924308}
   - component: {fileID: 3511371159482083800}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Wall Trigger Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6272922303841598521}
   - component: {fileID: 6693905722339120322}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ledge Trigger Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6987360062609363565}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ledge Detector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,7 +491,7 @@ GameObject:
   - component: {fileID: 2490086372241090113}
   - component: {fileID: 5749494343007766786}
   - component: {fileID: 5134920571649268490}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Ground Trigger Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}

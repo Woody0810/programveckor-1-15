@@ -24,12 +24,12 @@ namespace Player
 
 		private void Awake()
 		{
-			if (Instance == null && Instance != this)
+			if (Instance == null)
 			{
 				Instance = this;
 				DontDestroyOnLoad(gameObject);
 			}
-			else
+			else if (Instance != this)
 			{
 				Destroy(gameObject);
 			}
