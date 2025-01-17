@@ -140,7 +140,7 @@ namespace Player
 		}
 
 		/// <summary>
-		/// Flips the player based on the current direction and x
+		/// Flips the player based on the current x direction
 		/// </summary>
 		private void Flip()
 		{
