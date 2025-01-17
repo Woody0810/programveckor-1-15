@@ -15,10 +15,12 @@ public class AttackMele : MonoBehaviour
     public int damage;
 
     AudioManager audioManager;
+    private Animator _animator;
 
     private void Awake()
     {
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -29,6 +31,8 @@ public class AttackMele : MonoBehaviour
             {
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 Debug.Log("Amount of enemies: " + enemiesToDamage.Length);
+
+                _animator.Play("Slash");
 
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {

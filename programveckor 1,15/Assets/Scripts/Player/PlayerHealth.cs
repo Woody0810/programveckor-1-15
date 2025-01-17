@@ -33,6 +33,7 @@ namespace Player
 		private void Start()
 		{
 			CurrentHealth = MaxHealth;
+			OnHealthChanged?.Invoke(CurrentHealth);
 			Effects = new Queue<Coroutine>();
 		}
 
