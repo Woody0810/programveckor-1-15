@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/main game.unity
     guid: 192d34cd9bffe824fa70a56f52de059b
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/You Lose.unity
     guid: e8817109ea93fb843a44452642be0839
   - enabled: 0

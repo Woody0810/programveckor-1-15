@@ -24,6 +24,7 @@ namespace Weapon.Projectiles
 		{
 			newVelocity *= speed;
 			_rb.velocity = newVelocity;
+			Destroy(gameObject, 3);
 		}
 	}
 }
