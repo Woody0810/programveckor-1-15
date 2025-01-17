@@ -20315,6 +20315,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -201605503004328467, guid: ec1691357dae668488b45bd57822ff77, type: 3}
+      propertyPath: sceneName
+      value: Woody Bana 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3071589830226097537, guid: ec1691357dae668488b45bd57822ff77, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.2
