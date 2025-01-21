@@ -66,5 +66,21 @@ namespace Player
 			Destroy(gameObject);
 			SceneManager.LoadScene("You Lose");
 		}
-	}
+
+        AudioManager audioManager;
+        private void Awake()
+        {
+            audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        }
+
+        private void Update()
+        {
+            if (CurrentHealth < 20)
+			{
+                audioManager.PlaySFX(audioManager.heartbeat);
+                Debug.Log("below 20 health :(");
+            }
+        }
+
+    }
 }

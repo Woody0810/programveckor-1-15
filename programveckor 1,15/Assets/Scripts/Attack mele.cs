@@ -28,7 +28,7 @@ public class AttackMele : MonoBehaviour
     {
         if (timeBtwAttack <= 0)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.Mouse1))
             {
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 Debug.Log("Amount of enemies: " + enemiesToDamage.Length);
