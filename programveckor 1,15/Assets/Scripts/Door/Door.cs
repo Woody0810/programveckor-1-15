@@ -36,7 +36,7 @@ namespace Door
 		{
 			if (_isInDoorRange && Input.GetKeyDown(KeyCode.E) && LevelManager.Instance.CompletedLevel)
 			{
-                audioManager.PlaySFX(audioManager.Bigpunch);
+                audioManager.PlaySFX(audioManager.Door);
                 SceneManager.LoadScene(sceneName);
 			}
 		}

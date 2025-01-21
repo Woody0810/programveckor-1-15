@@ -34,7 +34,7 @@ public class AudioManager : MonoBehaviour
 
         if (lastScene == currentScene.name) return;
 
-        if (currentScene.name == "Start level" || currentScene.name == "settings") 
+        if (currentScene.name == "Start Level" || currentScene.name == "settings") 
 {        musicSource.clip = Backround1;
             musicSource.Play();
             audioManager.PlaySFX(audioManager.heartbeat);

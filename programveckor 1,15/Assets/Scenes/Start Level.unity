@@ -20320,12 +20320,16 @@ PrefabInstance:
       value: Woody Bana 2
       objectReference: {fileID: 0}
     - target: {fileID: 3071589830226097537, guid: ec1691357dae668488b45bd57822ff77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0182
+      objectReference: {fileID: 0}
+    - target: {fileID: 3071589830226097537, guid: ec1691357dae668488b45bd57822ff77, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.2
       objectReference: {fileID: 0}
     - target: {fileID: 3071589830226097537, guid: ec1691357dae668488b45bd57822ff77, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.1
+      value: 2.1196
       objectReference: {fileID: 0}
     - target: {fileID: 3071589830226097537, guid: ec1691357dae668488b45bd57822ff77, type: 3}
       propertyPath: m_LocalPosition.z
