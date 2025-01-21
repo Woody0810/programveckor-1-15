@@ -16,6 +16,7 @@ public class AttackMele : MonoBehaviour
     public int damage;
 
     AudioManager audioManager;
+
     [FormerlySerializedAs("_animator")] public Animator animator;
 
     private void Awake()
