@@ -444,7 +444,7 @@ MonoBehaviour:
   jumpBoxSize: {x: 0.7, y: 0.1}
   groundMask:
     serializedVersion: 2
-    m_Bits: 4104
+    m_Bits: 4296
   jumpCastDistance: 0.76
   jumpForce: 4
   jumpDelay: 0.75
