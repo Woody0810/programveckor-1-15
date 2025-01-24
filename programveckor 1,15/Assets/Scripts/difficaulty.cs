@@ -14,8 +14,6 @@ public class DifficultyManager : MonoBehaviour
     public static float enemyHealthMultiplier;
     public static float enemySpeedMultiplier;
     public static float playerHealthMultiplier;
-
-    // Call this method to set the difficulty
     public static void SetDifficulty(Difficulty difficulty)
     {
         CurrentDifficulty = difficulty;

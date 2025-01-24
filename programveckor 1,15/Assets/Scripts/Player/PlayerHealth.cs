@@ -19,7 +19,7 @@ namespace Player
 		public bool IsDamagable { get; set; } = true;
 		public event Action<float> OnHealthChanged;
 		public event Action OnDeath;
-
+		
 		private void OnEnable()
 		{
 			OnDeath += Death;
