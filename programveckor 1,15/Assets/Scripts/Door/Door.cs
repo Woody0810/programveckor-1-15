@@ -3,11 +3,8 @@ using Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-
 namespace Door
 {
-
 	public class Door : MonoBehaviour
 	{
         AudioManager audioManager;
