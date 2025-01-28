@@ -3,6 +3,7 @@ using Enemy;
 using EnemyScripts.State_Machine;
 using EnemyScripts.State_Machine.ConcreteStates;
 using UnityEngine;
+using Weapon.Interfaces;
 
 namespace EnemyScripts.Base
 {
@@ -84,6 +85,13 @@ namespace EnemyScripts.Base
 		}
 
 		public virtual void Death() {}
+
+		public void FireProjectile()
+		{
+			var direction = (PlayerTarget.transform.position - transform.position).normalized;
+			var projectile = Instantiate(bullet, transform.position, Quaternion.identity).GetComponent<IProjectile>();
+			projectile.SetVelocity(direction);
+		}
 
 		public void SetIsAgainstWall(bool isAgainstWall) => IsAgainstWall = isAgainstWall;
 

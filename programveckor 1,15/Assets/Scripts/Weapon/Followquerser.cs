@@ -24,8 +24,8 @@ public class Followquerser : MonoBehaviour
         transform.up = Vector3.MoveTowards(transform.up, mouseposition, _rotationSpeed * Time.deltaTime);
 
         if (Input.GetMouseButtonDown(0))
-      {
+        {
             Instantiate(arrowprojektile, spawnpoint.position, Quaternion.identity).GetComponent<Shootarrow>().Init(transform.up);
-      }
+        }
     }
 }

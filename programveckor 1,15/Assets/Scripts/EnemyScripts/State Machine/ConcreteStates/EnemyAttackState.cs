@@ -45,9 +45,9 @@ namespace EnemyScripts.State_Machine.ConcreteStates
 			{
 				_timer = 0;
 
-				var direction = (Enemy.PlayerTarget.transform.position - Enemy.transform.position).normalized;
-				var bullet = GameObject.Instantiate(_bullet, Enemy.transform.position, Quaternion.identity).GetComponent<IProjectile>();
-				bullet.SetVelocity(direction);
+				Enemy.EnemyAnimator.Play("Enemy_Attack");
+				Enemy.Invoke(nameof(Enemy.FireProjectile), 0.25f);
+				Enemy.EnemyAnimator.SetBool("Attacking", false);
 			}
 			else
 			{
