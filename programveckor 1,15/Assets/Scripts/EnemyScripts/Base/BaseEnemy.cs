@@ -44,7 +44,8 @@ namespace EnemyScripts.Base
 
 		private void Start()
 		{
-			EnemyAnimator = GetComponent<Animator>();
+            EnemyChaseSpeed *= PlayerPrefs.GetFloat("EnemySpeedMultiplier");
+            EnemyAnimator = GetComponent<Animator>();
 			Rb = GetComponent<Rigidbody2D>();
 
 			EnemyStateMachine = new EnemyStateMachine();
@@ -52,6 +53,7 @@ namespace EnemyScripts.Base
 			AttackState = new EnemyAttackState(this, EnemyStateMachine, bullet);
 
 			EnemyStateMachine.Init(IdleState);
+           
 
             // EnemyChaseSpeed *= DifficultyManager.enemySpeedMultiplier;
             // EnemyHealth.MaxHealth *= DifficultyManager.enemyHealthMultiplier;

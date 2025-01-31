@@ -33,7 +33,8 @@ namespace Enemy
 
 		private void Start()
 		{
-			CurrentHealth = MaxHealth;
+            MaxHealth *= PlayerPrefs.GetFloat("EnemyHealthMultiplier");
+            CurrentHealth = MaxHealth;
 		}
 
 		/// <summary>

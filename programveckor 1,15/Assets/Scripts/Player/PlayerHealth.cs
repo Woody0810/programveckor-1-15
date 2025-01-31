@@ -17,6 +17,7 @@ namespace Player
 		public bool IsDamagable { get; set; } = true;
 		public event Action<float> OnHealthChanged;
 		public event Action OnDeath;
+        
 		
 		private void OnEnable()
 		{
@@ -30,6 +31,7 @@ namespace Player
 
 		private void Start()
 		{
+			MaxHealth *= PlayerPrefs.GetFloat("PlayerHealthMultiplier");
 			CurrentHealth = MaxHealth;
 			OnHealthChanged?.Invoke(CurrentHealth);
 		}
