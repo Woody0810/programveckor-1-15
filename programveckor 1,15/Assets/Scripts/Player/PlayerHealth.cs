@@ -8,13 +8,11 @@ using UnityEngine.Serialization;
 
 namespace Player
 {
-	
 	[Serializable]
 	public class PlayerHealth : MonoBehaviour, IHealth
 	{
         [field: SerializeField] public float MaxHealth { get; set; }
 		public float CurrentHealth { get; set; }
-		public Queue<Coroutine> Effects { get; set; }
 
 		public bool IsDamagable { get; set; } = true;
 		public event Action<float> OnHealthChanged;
@@ -34,7 +32,6 @@ namespace Player
 		{
 			CurrentHealth = MaxHealth;
 			OnHealthChanged?.Invoke(CurrentHealth);
-			Effects = new Queue<Coroutine>();
 		}
 
 		public void TakeDamage(float amount)
