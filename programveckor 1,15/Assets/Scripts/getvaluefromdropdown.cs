@@ -20,6 +20,21 @@ public class getvaluefromdropdown : MonoBehaviour
     {
         PlayerPrefs.SetInt(dropdownKey, dropdown.value);
 
+        if(dropdown.value == 0)
+        {
+            DifficultyManager.SetDifficulty(Difficulty.Easy);
+        }        
+        if(dropdown.value == 1)
+        {
+            DifficultyManager.SetDifficulty(Difficulty.Medium);
+        }        
+        if(dropdown.value == 2)
+        {
+            DifficultyManager.SetDifficulty(Difficulty.Hard);
+        }
+        
+
+       
         PlayerPrefs.Save();
     }
     void LoadDropdownSelection()

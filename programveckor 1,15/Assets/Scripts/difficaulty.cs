@@ -24,6 +24,7 @@ public class DifficultyManager : MonoBehaviour
                 PlayerPrefs.SetFloat("EnemyHealthMultiplier", 0.6f);
                 PlayerPrefs.SetFloat("EnemySpeedMultiplier", 0.6f);
                 PlayerPrefs.SetFloat("PlayerHealthMultiplier", 1.2f);
+                Debug.Log("playerhealthinscript " + PlayerPrefs.GetFloat("PlayerHealthMultiplier"));
                 enemyHealthMultiplier = 0.6f;
                 enemySpeedMultiplier = 0.6f;
                 playerHealthMultiplier = 1.2f;

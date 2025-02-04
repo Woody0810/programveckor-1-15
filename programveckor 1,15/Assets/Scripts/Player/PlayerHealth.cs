@@ -31,9 +31,12 @@ namespace Player
 
 		private void Start()
 		{
-			MaxHealth *= PlayerPrefs.GetFloat("PlayerHealthMultiplier");
 			CurrentHealth = MaxHealth;
-			OnHealthChanged?.Invoke(CurrentHealth);
+            CurrentHealth *= PlayerPrefs.GetFloat("PlayerHealthMultiplier");
+            Debug.Log("CurrentHealth " + CurrentHealth);
+            Debug.Log("difficaulty " + PlayerPrefs.GetFloat("PlayerHealthMultiplier"));
+
+            OnHealthChanged?.Invoke(CurrentHealth);
 		}
 
 		public void TakeDamage(float amount)

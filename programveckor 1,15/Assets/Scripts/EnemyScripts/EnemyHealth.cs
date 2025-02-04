@@ -33,9 +33,10 @@ namespace Enemy
 
 		private void Start()
 		{
-            MaxHealth *= PlayerPrefs.GetFloat("EnemyHealthMultiplier");
             CurrentHealth = MaxHealth;
-		}
+            CurrentHealth *= PlayerPrefs.GetFloat("EnemyHealthMultiplier");
+			Debug.Log("EnemyHealth" + PlayerPrefs.GetFloat("EnemyHealthMultiplier"));
+        }
 
 		/// <summary>
 		/// Takes damage
