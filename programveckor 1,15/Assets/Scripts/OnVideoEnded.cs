@@ -9,9 +9,12 @@ public class OnVideoEnded : MonoBehaviour
 
 	private void Start()
 	{
+		var player = GameObject.FindGameObjectWithTag("Player");
+
 		videoPlayer.loopPointReached += source =>
 		{
 			SceneManager.LoadScene("Scenes/main meny");
+			Destroy(player);
 		};
 	}
 }
